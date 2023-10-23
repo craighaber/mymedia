@@ -1,0 +1,7 @@
+# A vite command:
+npm run dev
+
+Control c to stop the server
+
+Website I was using for reference: https://toggl.com/
+Should pick my own color scheme though. Maybe experiment with a random color scheme generator?

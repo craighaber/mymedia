@@ -1,0 +1,13 @@
+.home {
+    background-color: #2C1338;
+    color: #FFF3F2;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_title {
+        height: 20%;
+        font-size: 6rem;
+    }
+}
