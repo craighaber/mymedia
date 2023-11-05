@@ -1,35 +1,6 @@
 @use '../../../variables.scss' as v;
 
-.home {
-    background-color: v.$primary-color;
-    color: v.$text-color;
-}
-
-.title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15rem;
-
-    &_text {
-        height: 20%;
-        font-size: 6rem;
-        margin: 0;
-    }
-}
-
-.category{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    &_text {
-        font-size: 4rem;
-        margin: 0;
-    }
-}
-
-.media-list {
+.media {
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -37,7 +8,7 @@
     margin: auto 3rem;
    
     
-    &_table{
+    &-table{
         overflow-y: scroll;
         height: 70rem;
         display: block;
@@ -65,4 +36,3 @@
     }    
 
 }
-
