@@ -12,16 +12,19 @@
         overflow-y: scroll;
         height: 70rem;
         display: block;
-        border: 0.1rem solid v.$text-color;
+  
         border-collapse: collapse;
+        background-color: v.$white-color-darker;
+        color: black;
 
         thead {
             position: sticky;
             top: 0;
-            background-color: v.$analagous-color;
+            background-color: v.$secondary-color;
+            color: v.$white-color;
         }
         th, td {
-            border: 0.1rem solid v.$text_color;
+            border: 0.1rem solid v.$primary-color;
             padding: 1rem 3rem;
             max-width: 50rem;
         }

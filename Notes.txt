@@ -8,3 +8,5 @@ Should pick my own color scheme though. Maybe experiment with a random color sch
 
 #313579 is cool, #FAE814 is complementary
 then white text on background
+
+https://coolors.co/3d348b-7678ed-f7b801-f18701-f35b04

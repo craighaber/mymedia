@@ -8,6 +8,9 @@ const data = [
     {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
     {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
     {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'ranking': 8, 'summary': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
 ]
 
 function MediaTable(){
