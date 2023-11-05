@@ -4,11 +4,11 @@ function Navbar(){
     return(
     <>
         <div className="navbar">
-            <div className="navbar_title">MyMedia</div>
+            <div className="navbar_title">MYMEDIA</div>
             <ul className="navbar_links">
-                <li>Home</li>
-                <li>Discover</li>
-                <li>Login</li>
+                <li>HOME</li>
+                <li>DISCOVER</li>
+                <li>LOGIN</li>
             </ul>
         </div>
     </>)

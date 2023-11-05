@@ -1,15 +1,22 @@
+@use '././variables.scss' as v;
+
 html{
     font-family: "Basier Square", sans-serif;
     font-size: 62.5%;
 }
 
 body{
-    font-size: 1.6rem;
+    font-size: 1.6rem;    
 }
 
 html, body, #root{
     width: 100%;
-    height: 100%;
+   
     margin: 0;
     padding: 0;
+    background-color: v.$primary-color;
+}
+
+body{
+
 }

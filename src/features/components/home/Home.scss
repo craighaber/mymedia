@@ -1,13 +1,68 @@
+@use '../../../variables.scss' as v;
+
 .home {
-    background-color: #2C1338;
-    color: #FFF3F2;
-    height: 50%;
+    background-color: v.$primary-color;
+    color: v.$text-color;
+}
+
+.title{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 15rem;
 
-    &_title {
+    &_text {
         height: 20%;
         font-size: 6rem;
+        margin: 0;
     }
 }
+
+.category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    &_text {
+        font-size: 4rem;
+        margin: 0;
+    }
+}
+
+.media-list {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 3rem;
+   
+    
+    &_table{
+        overflow-y: scroll;
+        height: 70rem;
+        display: block;
+        border: 0.1rem solid v.$text-color;
+        border-collapse: collapse;
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: v.$analagous-color;
+        }
+        th, td {
+            border: 0.1rem solid v.$text_color;
+            padding: 1rem 3rem;
+            max-width: 50rem;
+        }
+
+        // Get rid of double lines
+        th {
+            border-top: none;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    }    
+
+}
+

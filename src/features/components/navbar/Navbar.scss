@@ -1,16 +1,23 @@
+@use '../../../variables.scss' as v;
+
 $navbar-padding: 2rem;
+$letter-spacing: 0.3rem;
 
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: pink;
+    background-color: v.$primary-color;
+    color: v.$text-color;
+    border-bottom: 0.05rem solid v.$text-color;
+    font-size: 2rem;
 }
 
 .navbar_title{
     font-size: 3rem;
     padding-left: $navbar-padding;
+    letter-spacing: $letter-spacing;
 }
 
 .navbar_links{
@@ -20,5 +27,6 @@ $navbar-padding: 2rem;
 }
 
 .navbar_links li{
-    margin: auto 3rem;
+    margin: auto 7rem;
+    letter-spacing: $letter-spacing;
 }
