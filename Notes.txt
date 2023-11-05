@@ -6,7 +6,5 @@ Control c to stop the server
 Website I was using for reference: https://toggl.com/
 Should pick my own color scheme though. Maybe experiment with a random color scheme generator?
 
-#313579 is cool, #FAE814 is complementary
-then white text on background
-
+Color schme:
 https://coolors.co/3d348b-7678ed-f7b801-f18701-f35b04

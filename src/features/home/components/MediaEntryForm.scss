@@ -1,0 +1,16 @@
+@use '../../../variables.scss' as v;
+
+.entry-container{
+    margin: 3rem auto;
+    height: 20rem;
+    width: 90%;
+    background-color: v.$white-color-darker;
+    color: black;
+}
+
+.entry{
+    
+    &_form-row {
+
+    }
+}
