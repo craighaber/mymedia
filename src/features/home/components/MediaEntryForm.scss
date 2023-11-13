@@ -6,11 +6,53 @@
     width: 90%;
     background-color: v.$white-color-darker;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.entry{
+.entry-form {
+    width: 90%;
+    background-color: red;
     
-    &_form-row {
+   
+}
 
+.entry-grid {
+    display: grid;
+    gap: 2rem 0;
+    grid-template-areas:
+    ". one three two ."
+    ". four four four ."
+    ". . five . .";
+    &_row{
+        width: 20%;
     }
 }
+
+#category{
+    width: 14rem;
+}
+.four {
+    height: 6rem;
+}
+
+
+
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+    width: 20%;
+}
+

@@ -6,15 +6,15 @@ import { Media } from './models/Media';
 
 const initialMediaList: Media[] = [
     {'title': 'Adventure Time', 'category': 'TV Show', 'rating': 9.5, 'review': 'Incredibly creative world and characters with literally the perfect art style. Hilarious, meaningful, and makes you appreaciate the wonders of life.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
-    {'title': 'The Pragmatic Programmer, 20th anniversery editon', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer, some really good sections on DRY principle and inheritance.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
+    {'title': 'The Pragmatic Programmer, 20th anniversery edition', 'category': 'Book', 'rating': 8, 'review': 'Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.'},
 ]
 
 export default function Home(){
