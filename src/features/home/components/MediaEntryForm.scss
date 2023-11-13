@@ -13,46 +13,45 @@
 
 .entry-form {
     width: 90%;
-    background-color: red;
-    
-   
 }
 
 .entry-grid {
     display: grid;
     gap: 2rem 0;
     grid-template-areas:
-    ". one three two ."
-    ". four four four ."
-    ". . five . .";
+    ". title category rating ."
+    ". review review review ."
+    ". . save . .";
     &_row{
         width: 20%;
     }
+    &_area-title {
+        grid-area: title;
+        #title {
+            width: 30rem;
+        }
+    }
+    &_area-category {
+        grid-area: category;
+        #category {
+            width: 14rem;
+        }
+    }
+    &_area-rating {
+        grid-area: rating;
+        #rating {
+            width: 8rem;
+        }
+    }
+    &_area-review {
+        grid-area: review;
+        height: 6rem;
+    }
+    &_area-save {
+        grid-area: save;
+        width: 10rem;
+        #save {
+            width: 10rem;
+        }
+    }
 }
-
-#category{
-    width: 14rem;
-}
-.four {
-    height: 6rem;
-}
-
-
-
-.one {
-    grid-area: one;
-}
-.two {
-    grid-area: two;
-}
-.three {
-    grid-area: three;
-}
-.four {
-    grid-area: four;
-}
-.five {
-    grid-area: five;
-    width: 20%;
-}
-

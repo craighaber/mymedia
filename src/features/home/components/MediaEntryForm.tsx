@@ -31,11 +31,11 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
         <div className="entry-container">
             <form className="entry-form">
                 <div className="entry-grid">
-                    <div className="entry-grid_row one">
+                    <div className="entry-grid_row entry-grid_area-title">
                         <label htmlFor="title">Title</label>
                         <input id="title" name="title" value={curFormData.title}  onChange={handleFormChange}/>
                     </div>
-                    <div className="entry-grid_row two">
+                    <div className="entry-grid_row entry-grid_area-category">
                         <label htmlFor="category">Category</label>
                         <select id="category" name="category" value={curFormData.category}  onChange={handleFormChange}>
                             {categories.map(category => {
@@ -43,13 +43,14 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
                             })}
                         </select>
                     </div>
-                    <div className='entry-grid_row three'>
+                    <div className='entry-grid_row entry-grid_area-rating'>
                         <label htmlFor="rating">Rating</label>
-                        <input type="number" id="ranting" name="rating" value={curFormData.rating} onChange={handleFormChange}></input>
+                        <input type="number" id="rating" name="rating" value={curFormData.rating} onChange={handleFormChange}></input>
                     </div>
-                    <textarea className= "four" placeholder='Add a review...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
-                    <button className="five" onClick={(e)=> submitForm(e)}>Save</button>
-    
+                    <textarea className= "entry-grid_area-review" placeholder='Add a review...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                    <div className='entry-grid_row entry-grid_area-save'>
+                        <button id="save" onClick={(e)=> submitForm(e)}>Save</button>
+                    </div>
                 </div>
             </form>
         </div>
