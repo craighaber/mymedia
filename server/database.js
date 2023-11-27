@@ -10,6 +10,14 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise()
 
+
+export async function getCategories(){
+    const [rows] = await pool.query("SELECT category from categories")
+    return rows.map(row => row.category)
+}
+
+// *********************************************************
+// Functions for references. TODO: Delete
 export async function getNotes(){
     const [rows] = await pool.query("SELECT * from notes")
     console.log(rows)
@@ -31,3 +39,4 @@ export async function createNote(title, contents) {
     `, [title, contents])
     return result.insertId
 }
+// *********************************************************

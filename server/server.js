@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getNote, getNotes, createNote} from './database.js'
+import {getCategories, getNote, getNotes, createNote} from './database.js'
 
 dotenv.config()
 
@@ -12,10 +12,14 @@ app.use(cors())
 //Allows express to parse JSON request bodies
 app.use(express.json()) 
 
-app.get('/', (req, res)=>{
-    return res.json("root")
+app.get('/categories', async (req, res) => {
+    const categories = await getCategories()
+    res.send(categories)
 })
 
+
+// *********************************************************
+// Functions for references. TODO: Delete
 app.get('/notes', async (req, res)=> {   
     const notes = await getNotes()
     res.send(notes) 
@@ -32,6 +36,8 @@ app.post('/notes', async (req, res)=> {
     const id = await createNote(title, contents) 
     res.status(201).send(id)
 })
+
+// *********************************************************
 
 // Global error handler
 app.use((err, req, res, next) => {

@@ -1,0 +1,10 @@
+CREATE DATABASE mymedia;
+CREATE TABLE categories (  id integer PRIMARY KEY AUTO_INCREMENT,     category VARCHAR(255) NOT NULL );
+INSERT INTO categories (category) VALUES ("Album"), ("Anime"), ("Book"), ("Comic"), ("Manga"), ("Movie"), ("Song"), ("TV Show"), ("Video Game");
+
+
+USE cat
+Todo-
+make category table (figure out best practice for what primary key should be). 
+make users table. each user has a username (or email) and password. this table is connected with the media table in some way
+make Media table. Has title, category, rating, review, connection to user 

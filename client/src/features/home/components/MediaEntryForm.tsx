@@ -1,16 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './MediaEntryForm.scss'
 import { Media } from './models/Media'
 
 
 export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
-    const categories = ["Book", "Movie", "TV Show", "Song", "Category"]
+
+
+    let initCategories: string[] = []
     const intialMedia: Media = {
         title: '',
         category: ''
     }
- 
+    const [categories, setCategories] = useState(initCategories)
     const [curFormData, setCurFormData] = useState(intialMedia)
+    useEffect(()=> {
+        fetch("http://localhost:8081/categories")
+        .then((res)=> res.json())
+        .then((data) => setCategories(data))
+        .catch((error) => console.log(error))
+        console.log(categories)
+    }, [])
 
     function handleFormChange(e: any){
         const {name, value} = e.target
