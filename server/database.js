@@ -16,6 +16,12 @@ export async function getMedia(){
     return rows
 }
 
+export async function addMedia(title, category, rating, review){
+    await pool.query(
+    `INSERT INTO media (title, category_id, rating, review) VALUES (?, (SELECT id FROM categories WHERE category = ?), ?, ?)`, 
+    [title, category, rating, review])
+}
+
 export async function getCategories(){
     const [rows] = await pool.query("SELECT category from categories")
     return rows.map(row => row.category)
@@ -45,3 +51,4 @@ export async function createNote(title, contents) {
     return result.insertId
 }
 // *********************************************************
+// addMedia("test", "Anime", 8, "test")

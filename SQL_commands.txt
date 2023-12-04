@@ -1,3 +1,4 @@
+USE mymedia
 CREATE DATABASE mymedia;
 CREATE TABLE categories (  id integer PRIMARY KEY AUTO_INCREMENT,     category VARCHAR(255) NOT NULL );
 INSERT INTO categories (category) VALUES ("Album"), ("Anime"), ("Book"), ("Comic"), ("Manga"), ("Movie"), ("Song"), ("TV Show"), ("Video Game");
@@ -11,8 +12,11 @@ CREATE TABLE media (
 )
 INSERT INTO media (title, category_id, rating, review) VALUES ('Adventure Time', 8, 9.5, "Incredibly creative world and characters with literally the perfect art style. Hilarious, meaningful, and reminds you of the wonders of life."), ("The Pragmatic Programmer", 3, 8, "Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.");
 
-USE mymedia
-Todo-
-make caegory table (figure out best practice for what primary key should be). 
+
+Todo:
+clean up data in media table
+make title field required on client side
+indicate that the media data was submitted successfully/ not
+
 make users table. each user has a username (or email) and password. this table is connected with the media table in some way
-make Media table. Has title, category, rating, review, connection to user 
+add user email foreign key to media table

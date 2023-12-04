@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getMedia, getCategories, getNote, getNotes, createNote} from './database.js'
+import {getMedia, getCategories, getNote, getNotes, createNote, addMedia} from './database.js'
 
 dotenv.config()
 
@@ -17,9 +17,15 @@ app.get('/media', async (req, res) => {
     res.send(media)
 })
 
+app.post('/media', async (req, res) => {
+    const {title, category, rating, review} = req.body 
+    addMedia(title, category, rating, review)
+    res.status(201)
+})
+
 app.get('/categories', async (req, res) => {
     const categories = await getCategories()
-    res.send(categories)
+    await res.send(categories)
 })
 
 

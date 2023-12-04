@@ -5,7 +5,6 @@ import { Media } from './models/Media'
 
 export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
 
-
     const intialMedia: Media = {
         title: '',
         category: ''

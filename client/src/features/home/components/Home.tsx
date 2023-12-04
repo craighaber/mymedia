@@ -13,15 +13,22 @@ export default function Home(){
         .then((res)=> res.json())
         .then((data) => setMediaList(data))
         .catch((error) => console.log(error))
-    }, [])
+    }, [mediaList])
 
     function displayForm(){
         setShowForm(true)
     }
 
     function saveMediaEntry(mediaEntry: Media){
-        setMediaList((currentMediaList: Media[]) => { 
-            return [mediaEntry, ...currentMediaList]
+        // setMediaList((currentMediaList: Media[]) => { 
+        //     return [mediaEntry, ...currentMediaList]
+        // })
+        fetch("http://localhost:8081/media", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(mediaEntry)
         })
     }
 
