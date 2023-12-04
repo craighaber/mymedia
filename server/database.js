@@ -11,6 +11,11 @@ const pool = mysql.createPool({
 }).promise()
 
 
+export async function getMedia(){
+    const [rows] = await pool.query("SELECT media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id")
+    return rows
+}
+
 export async function getCategories(){
     const [rows] = await pool.query("SELECT category from categories")
     return rows.map(row => row.category)
@@ -19,7 +24,7 @@ export async function getCategories(){
 // *********************************************************
 // Functions for references. TODO: Delete
 export async function getNotes(){
-    const [rows] = await pool.query("SELECT * from notes")
+    const [rows] = await pool.query("")
     console.log(rows)
 }
 

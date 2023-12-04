@@ -17,7 +17,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
                 <tbody>
                     {
                         mediaList.map((entry: Media)=> {
-                            return <tr>
+                            return <tr key={entry.title}>
                             <td>{entry.title}</td>
                             <td>{entry.category}</td>
                             <td>{entry.rating}</td>

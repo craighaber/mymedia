@@ -6,19 +6,17 @@ import { Media } from './models/Media'
 export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
 
 
-    let initCategories: string[] = []
     const intialMedia: Media = {
         title: '',
         category: ''
     }
-    const [categories, setCategories] = useState(initCategories)
+    const [categories, setCategories] = useState<string[]>([])
     const [curFormData, setCurFormData] = useState(intialMedia)
     useEffect(()=> {
         fetch("http://localhost:8081/categories")
         .then((res)=> res.json())
         .then((data) => setCategories(data))
         .catch((error) => console.log(error))
-        console.log(categories)
     }, [])
 
     function handleFormChange(e: any){

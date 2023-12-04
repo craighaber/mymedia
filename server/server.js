@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getCategories, getNote, getNotes, createNote} from './database.js'
+import {getMedia, getCategories, getNote, getNotes, createNote} from './database.js'
 
 dotenv.config()
 
@@ -11,6 +11,11 @@ const app = express()
 app.use(cors())
 //Allows express to parse JSON request bodies
 app.use(express.json()) 
+
+app.get('/media', async (req, res) => {
+    const media = await getMedia()
+    res.send(media)
+})
 
 app.get('/categories', async (req, res) => {
     const categories = await getCategories()
