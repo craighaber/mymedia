@@ -1,9 +1,10 @@
-@use '../../../variables.scss' as v;
+@use '../../../../variables.scss' as v;
 
 .entry-container{
     margin: 3rem auto;
     height: 20rem;
     width: 90%;
+    border-radius: 1rem;
     background-color: v.$white-color-darker;
     color: black;
     display: flex;
@@ -17,7 +18,7 @@
 
 .entry-grid {
     display: grid;
-    gap: 2rem 0;
+    gap: 2.5rem 0;
     grid-template-areas:
     ". title category rating ."
     ". review review review ."
@@ -28,6 +29,11 @@
     &_area-title {
         grid-area: title;
         #title {
+            width: 30rem;
+        }
+        #title-error {
+            color: v.$error-color;
+            position: absolute;
             width: 30rem;
         }
     }
@@ -52,6 +58,12 @@
         width: 10rem;
         #save {
             width: 10rem;
+            @include v.button(10rem, 3rem, 2.5rem);
+            letter-spacing: 0;
         }
     }
+}
+
+.error-border{
+    @include v.error-border;
 }

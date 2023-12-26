@@ -3,3 +3,21 @@ $secondary-color: #7678ed;
 $tertiary-color: #f7b801;
 $white-color: #FFF3F2;
 $white-color-darker: #FCF0EC;
+$error-color: #DF4151;
+@mixin button($width, $height, $font-size) {
+    width: $width;
+    height: $height;
+    font-size: $font-size;
+    letter-spacing: 0.3rem;
+    border-radius: 1.5rem;
+    border: 0.1rem solid $primary-color;
+    background-color: $tertiary-color;
+    color: $primary-color;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+@mixin error-border {
+    border: 0.1rem solid red;
+}

@@ -20,7 +20,7 @@ app.get('/media', async (req, res) => {
 app.post('/media', async (req, res) => {
     const {title, category, rating, review} = req.body 
     addMedia(title, category, rating, review)
-    res.status(201)
+    res.sendStatus(201)
 })
 
 app.get('/categories', async (req, res) => {

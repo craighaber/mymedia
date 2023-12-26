@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './MediaEntryForm.scss'
-import { Media } from './models/Media'
+import { Media } from '../models/Media'
 
 
 export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
@@ -11,6 +11,8 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
     }
     const [categories, setCategories] = useState<string[]>([])
     const [curFormData, setCurFormData] = useState(intialMedia)
+    const [missingTitle, setMissingTitle]  = useState(false);
+
     useEffect(()=> {
         fetch("http://localhost:8081/categories")
         .then((res)=> res.json())
@@ -29,7 +31,14 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
 
     function submitForm(e: any){
         e.preventDefault()
-        saveMediaEntry(curFormData)
+        console.log(curFormData)
+        if (curFormData.title === '') {
+            setMissingTitle(true)
+        } else{
+            setMissingTitle(false)
+            saveMediaEntry(curFormData)
+        }
+        
     }
 
 
@@ -39,7 +48,8 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
                 <div className="entry-grid">
                     <div className="entry-grid_row entry-grid_area-title">
                         <label htmlFor="title">Title</label>
-                        <input id="title" name="title" value={curFormData.title}  onChange={handleFormChange}/>
+                        <input id="title" name="title" value={curFormData.title} className={missingTitle ? 'error-border': undefined}  onChange={handleFormChange}/>
+                        { missingTitle && <span id="title-error">Please provide a title</span> }
                     </div>
                     <div className="entry-grid_row entry-grid_area-category">
                         <label htmlFor="category">Category</label>

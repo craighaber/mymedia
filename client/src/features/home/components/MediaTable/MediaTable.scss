@@ -1,4 +1,4 @@
-@use '../../../variables.scss' as v;
+@use '../../../../variables.scss' as v;
 
 .media {
     font-size: 2rem;
@@ -10,7 +10,8 @@
     
     &-table{
         overflow-y: scroll;
-        height: 70rem;
+        height: auto;
+        max-height: 70rem;
         display: block;
   
         border-collapse: collapse;

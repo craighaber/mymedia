@@ -1,5 +1,5 @@
 import './MediaTable.scss'
-import { Media } from './models/Media'
+import { Media } from '../models/Media'
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
     return (
