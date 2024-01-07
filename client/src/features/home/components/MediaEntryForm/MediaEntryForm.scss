@@ -31,11 +31,6 @@
         #title {
             width: 30rem;
         }
-        #title-error {
-            color: v.$error-color;
-            position: absolute;
-            width: 30rem;
-        }
     }
     &_area-category {
         grid-area: category;
@@ -62,6 +57,12 @@
             letter-spacing: 0;
         }
     }
+}
+
+.required-text {
+    color: v.$error-color;
+    position: absolute;
+    width: 30rem;
 }
 
 .error-border{

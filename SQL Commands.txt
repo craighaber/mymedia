@@ -11,12 +11,3 @@ CREATE TABLE media (
     review TEXT
 )
 INSERT INTO media (title, category_id, rating, review) VALUES ('Adventure Time', 8, 9.5, "Incredibly creative world and characters with literally the perfect art style. Hilarious, meaningful, and reminds you of the wonders of life."), ("The Pragmatic Programmer", 3, 8, "Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.");
-
-
-Todo:
-when category field defaults to album, that value isn't saved
-saving withot rating or description doesn't show in table
-center save button, but no need to waste much time
-
-make users table. each user has a username (or email) and password. this table is connected with the media table in some way
-add user email foreign key to media table

@@ -1,0 +1,4 @@
+center save button, but no need to waste much time
+
+make users table. each user has a username (or email) and password. this table is connected with the media table in some way
+add user email foreign key to media table

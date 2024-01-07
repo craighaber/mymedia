@@ -12,6 +12,7 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
     const [categories, setCategories] = useState<string[]>([])
     const [curFormData, setCurFormData] = useState(intialMedia)
     const [missingTitle, setMissingTitle]  = useState(false);
+    const [missingCategory, setMissingCategory] = useState(false);
 
     useEffect(()=> {
         fetch("http://localhost:8081/categories")
@@ -31,11 +32,22 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
 
     function submitForm(e: any){
         e.preventDefault()
-        console.log(curFormData)
+        
+        // Show text indicating title and category are required
         if (curFormData.title === '') {
             setMissingTitle(true)
-        } else{
+            console.log(missingTitle)
+        } else {
             setMissingTitle(false)
+        }
+        if (curFormData.category === ''){
+            setMissingCategory(true)
+        }  else {
+            setMissingCategory(false)
+        }
+        
+        // Save the form when all required values are set
+        if (curFormData.title !== '' && curFormData.category !== ''){
             saveMediaEntry(curFormData)
         }
         
@@ -49,15 +61,17 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
                     <div className="entry-grid_row entry-grid_area-title">
                         <label htmlFor="title">Title</label>
                         <input id="title" name="title" value={curFormData.title} className={missingTitle ? 'error-border': undefined}  onChange={handleFormChange}/>
-                        { missingTitle && <span id="title-error">Please provide a title</span> }
+                        { missingTitle && <span className="required-text">Please provide a title</span> }
                     </div>
                     <div className="entry-grid_row entry-grid_area-category">
                         <label htmlFor="category">Category</label>
-                        <select id="category" name="category" value={curFormData.category}  onChange={handleFormChange}>
+                        <select id="category" name="category" value={curFormData.category} className= {missingCategory ? 'error-border': undefined}  onChange={handleFormChange}>
+                            <option disabled value="">Choose a category</option>
                             {categories.map(category => {
-                                return <option key={category} value={category}>{category}</option>
+                                return <option selected key={category} value={category}>{category}</option>
                             })}
                         </select>
+                        {missingCategory && <span className="required-text">Please provide a category</span>}
                     </div>
                     <div className='entry-grid_row entry-grid_area-rating'>
                         <label htmlFor="rating">Rating</label>
