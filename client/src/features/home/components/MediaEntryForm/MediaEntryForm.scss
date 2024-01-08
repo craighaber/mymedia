@@ -22,7 +22,7 @@
     grid-template-areas:
     ". title category rating ."
     ". review review review ."
-    ". . save . .";
+    "save save save save save";
     &_row{
         width: 20%;
     }
@@ -51,10 +51,12 @@
     &_area-save {
         grid-area: save;
         width: 10rem;
+        justify-self: center;
         #save {
             width: 10rem;
             @include v.button(10rem, 3rem, 2.5rem);
             letter-spacing: 0;
+            
         }
     }
 }
