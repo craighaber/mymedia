@@ -1,0 +1,2 @@
+- make users table. each user has a username (or email). With auth0 this could just be the uuid or sub this table is connected with the media table in some way. Or maybe this table does not need to exist at all and the media table just needs the uuid to know which data to load
+- add user email foreign key to media table
