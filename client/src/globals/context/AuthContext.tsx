@@ -6,9 +6,10 @@ import {auth} from '../../firebase'
 
 const AuthContext: any = createContext({})
 
-
+// Creates and manages the authorization context, a global state for user information
 export const AuthContextProvider = ({children}: any) => {
     const [user, setUser] = useState({})
+    
     const googleLogIn = () => {
         const provider = new GoogleAuthProvider()
         signInWithRedirect(auth, provider)
@@ -18,11 +19,14 @@ export const AuthContextProvider = ({children}: any) => {
         signOut(auth)
     }
 
+    // The purpose of the useEffect is just to set up the onAuthStateChange listener when the component mounts
     useEffect(() => {
+        // Update the user variable whenever the authorization state changes
         const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
             setUser(currentUser)
-            console.log('User', currentUser)
+            console.log(currentUser)
         })
+        // Returning from useEffect means the function (unsubscribe) is called when the component is unmounted to terminate the onAuthStateChanged listener
         return () => {
             unsubscribe()
         }
@@ -36,6 +40,7 @@ export const AuthContextProvider = ({children}: any) => {
     )
 }
 
+// Function that is called to consume/use the authorization context
 export const UserAuth = () => {
     return useContext(AuthContext)
 }

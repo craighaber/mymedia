@@ -7,13 +7,11 @@
     align-items: center;
     margin: auto 3rem;
    
-    
     &-table{
-        overflow-y: scroll;
+        overflow-y: auto;
         height: auto;
-        max-height: 70rem;
+        max-height: 60rem;
         display: block;
-  
         border-collapse: collapse;
         background-color: v.$white-color-darker;
         color: black;
@@ -30,7 +28,7 @@
             max-width: 50rem;
         }
 
-        // Get rid of double lines
+        // Gets rid of double lines
         th {
             border-top: none;
         }
