@@ -4,7 +4,8 @@ import Home from './features/home/components/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import Login from './features/login/components/Login/Login'
 import Account from './features/account/components/Account/Account'
-import { AuthContextProvider } from './AuthContext'
+import { AuthContextProvider } from './globals/context/AuthContext'
+import  RoutePaths from './globals/constants/RoutePaths'
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <AuthContextProvider>
         <Navbar/>
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/account' element={<Account/>} />
+          <Route path={RoutePaths.Home} element={<Home/>} />
+          <Route path={RoutePaths.Login} element={<Login/>} />
+          <Route path={RoutePaths.Account} element={<Account/>} />
         </Routes>
       </AuthContextProvider>
     </>

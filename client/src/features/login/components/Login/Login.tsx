@@ -1,6 +1,6 @@
 import GoogleButton from 'react-google-button'
 import './Login.scss'
-import { UserAuth } from '../../../../AuthContext'
+import { UserAuth } from '../../../../globals/context/AuthContext'
 
 function Login(){
 
