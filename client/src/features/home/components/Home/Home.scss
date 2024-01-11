@@ -3,6 +3,7 @@
 .home {
     background-color: v.$primary-color;
     color: v.$white-color;
+    // height: calc(100% - v.$navbar-height - 0.1rem); Uncomment if want to force page height to be height of view
 }
 
 .title{

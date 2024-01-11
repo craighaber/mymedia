@@ -4,6 +4,9 @@ $tertiary-color: #f7b801;
 $white-color: #FFF3F2;
 $white-color-darker: #FCF0EC;
 $error-color: #DF4151;
+
+$navbar-height: 6rem;
+
 @mixin button($width, $height, $font-size) {
     width: $width;
     height: $height;

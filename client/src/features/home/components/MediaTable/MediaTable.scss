@@ -10,11 +10,12 @@
     &-table{
         overflow-y: auto;
         height: auto;
-        max-height: 60rem;
         display: block;
         border-collapse: collapse;
         background-color: v.$white-color-darker;
         color: black;
+        margin-bottom: 5rem;
+        max-height: 65vh;
 
         thead {
             position: sticky;

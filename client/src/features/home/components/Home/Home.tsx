@@ -44,8 +44,8 @@ export default function Home(){
             <h3 className='title_text'>Remember your favorite media</h3>
         </div>
         
-        <div className='add' onClick={() => displayForm()}>
-            <button className='add_button'>QUICK ADD</button>
+        <div className='add'>
+            <button className='add_button' onClick={() => displayForm()}>QUICK ADD</button>
         </div>
         
         {showForm ? <MediaEntryForm saveMediaEntry={saveMediaEntry}/> : null}
