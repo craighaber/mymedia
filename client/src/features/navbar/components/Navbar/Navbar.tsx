@@ -27,8 +27,8 @@ function Navbar(){
         <div className="navbar">
             <div className="navbar_title">MYMEDIA</div>
             <ul className="navbar_links">
-                <li>HOME</li>
-                <li>DISCOVER</li>
+                {/* <li>HOME</li>
+                <li>DISCOVER</li> */}
                 {user?.uid ? <li onClick={handleLogout}>LOGOUT</li>: <li onClick={handleLogin}>LOGIN</li>}
              
             </ul>
