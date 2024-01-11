@@ -1,0 +1,46 @@
+@use '../../../../variables.scss' as v;
+
+.home {
+    background-color: v.$primary-color;
+    color: v.$white-color;
+    // height: calc(100% - v.$navbar-height - 0.1rem); Uncomment if want to force page height to be height of view
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+
+    &_text {
+        height: 20%;
+        font-size: 6rem;
+        margin: 0;
+    }
+}
+
+.category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    &_text {
+        font-size: 4rem;
+        margin: 0;
+    }
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem;
+    margin-bottom: 2rem;
+    &_button{
+        @include v.button(30rem, 4rem, 3rem);
+    }
+
+}
+
+
+
