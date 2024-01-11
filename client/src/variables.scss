@@ -1,6 +1,8 @@
 $primary-color: #3d348b;
 $secondary-color: #7678ed;
 $tertiary-color: #f7b801;
+$tertiary-lightened-color: #fedd7c;
+$quarternary-color: #f18701;
 $white-color: #FFF3F2;
 $white-color-darker: #FCF0EC;
 $error-color: #DF4151;
@@ -18,6 +20,7 @@ $navbar-height: 6rem;
     color: $primary-color;
     &:hover{
         cursor: pointer;
+        background-color: $tertiary-lightened-color;
     }
 }
 

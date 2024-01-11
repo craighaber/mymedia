@@ -28,6 +28,14 @@ $letter-spacing: 0.3rem;
 }
 
 .navbar_links li{
-    margin: auto 7rem;
+    margin: auto 5rem;
     letter-spacing: $letter-spacing;
+}
+
+.navbar_login {
+    @include v.button(12rem, 3.5rem, 2.3rem);
+}
+
+.navbar_logout {
+    @include v.button(13rem, 3rem, 2rem);
 }
