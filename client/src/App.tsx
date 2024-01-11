@@ -6,6 +6,7 @@ import Login from './features/login/components/Login/Login'
 import Account from './features/account/components/Account/Account'
 import { AuthContextProvider } from './globals/context/AuthContext'
 import  RoutePaths from './globals/constants/RoutePaths'
+import Protected from './features/navbar/components/Protected/Protected'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path={RoutePaths.Home} element={<Home/>} />
           <Route path={RoutePaths.Login} element={<Login/>} />
-          <Route path={RoutePaths.Account} element={<Account/>} />
+          <Route path={RoutePaths.Account} element={<Protected><Account/></Protected>} />
         </Routes>
       </AuthContextProvider>
     </>

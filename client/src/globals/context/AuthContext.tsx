@@ -29,6 +29,7 @@ export const AuthContextProvider = ({children}: any) => {
     }, [])
 
     return (
+        // The values are what are passed globally through the application
         <AuthContext.Provider value={{googleLogIn, logout, user}}>
             {children}
         </AuthContext.Provider>

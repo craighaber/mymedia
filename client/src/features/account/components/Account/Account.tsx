@@ -1,9 +1,12 @@
+import { UserAuth } from '../../../../globals/context/AuthContext';
 import './Acount.scss'
 
 function Account(){
+
+    const {user}: any = UserAuth();
     return(
     <>
-        <p>This is the account page</p>
+        <p>Welcome, {user?.email}</p>
     </>)
 }
 
