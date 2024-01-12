@@ -42,9 +42,9 @@ function Account(){
     }
 
     return (
-    <div className="home">
-        <div className='title'>
-            <h3 className='title_text'>Remember your favorite media</h3>
+    <div className="account">
+        <div className='table-title'>
+            <div className='table-title_text'>ALL MEDIA</div>
         </div>
         
         <div className='add'>

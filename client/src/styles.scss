@@ -20,4 +20,6 @@ html, body {
 #root {
     height: 100%;
     overflow-y: auto;
+    background-color: v.$primary-color;
+    color: v.$white-color;
 }
