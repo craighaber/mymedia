@@ -1,7 +1,11 @@
-- make users table. each user has a username (or email). With auth0 this could just be the uuid or sub this table is connected with the media table in some way. Or maybe this table does not need to exist at all and the media table just needs the uuid to know which data to load
-- add user email foreign key to media table
 - only log errors in dev mode
 - figure out what to do with multiple rows with same title, if anything (the rows are keyed by title in the html table)
 - deleting rows
 - login with email
-- 
+
+Table ideas
+- might not need pagination, see how MAL does it
+- could scroll like notes app
+- stil would want search and filter by category
+- would want ability to click on a row and view/edit it
+- would be good to have extended notes per media too

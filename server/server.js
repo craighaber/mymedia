@@ -5,21 +5,19 @@ import {getMedia, getCategories, getNote, getNotes, createNote, addMedia} from '
 
 dotenv.config()
 
-
-
 const app = express()
 app.use(cors())
 //Allows express to parse JSON request bodies
 app.use(express.json()) 
 
-app.get('/media', async (req, res) => {
-    const media = await getMedia()
+app.get('/media/:uid', async (req, res) => {
+    const media = await getMedia(req.params.uid)
     res.send(media)
 })
 
 app.post('/media', async (req, res) => {
-    const {title, category, rating, review} = req.body 
-    addMedia(title, category, rating, review)
+    const {title, category, rating, review, uid} = req.body 
+    addMedia(title, category, rating, review, uid)
     res.sendStatus(201)
 })
 

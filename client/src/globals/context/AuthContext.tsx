@@ -9,6 +9,7 @@ const AuthContext: any = createContext({})
 // Creates and manages the authorization context, a global state for user information
 export const AuthContextProvider = ({children}: any) => {
     const [user, setUser] = useState({})
+    const [isUserLoaded, setIsUserLoaded] = useState(false)
     
     const googleLogIn = () => {
         const provider = new GoogleAuthProvider()
@@ -24,7 +25,8 @@ export const AuthContextProvider = ({children}: any) => {
         // Update the user variable whenever the authorization state changes
         const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
             setUser(currentUser)
-            console.log(currentUser)
+            // The user is no longer loading (is loaded)
+            if (!isUserLoaded) setIsUserLoaded(true)
         })
         // Returning from useEffect means the function (unsubscribe) is called when the component is unmounted to terminate the onAuthStateChanged listener
         return () => {
@@ -34,7 +36,7 @@ export const AuthContextProvider = ({children}: any) => {
 
     return (
         // The values are what are passed globally through the application
-        <AuthContext.Provider value={{googleLogIn, logout, user}}>
+        <AuthContext.Provider value={{googleLogIn, logout, isUserLoaded, user}}>
             {children}
         </AuthContext.Provider>
     )

@@ -11,15 +11,17 @@ const pool = mysql.createPool({
 }).promise()
 
 
-export async function getMedia(){
-    const [rows] = await pool.query("SELECT media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id")
+export async function getMedia(uid){
+    console.log("getmedia")
+    console.log(uid)
+    const [rows] = await pool.query('SELECT media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id WHERE media.uid = ?', [uid])
     return rows
 }
 
-export async function addMedia(title, category, rating, review){
+export async function addMedia(title, category, rating, review, uid){
     await pool.query(
-    `INSERT INTO media (title, category_id, rating, review) VALUES (?, (SELECT id FROM categories WHERE category = ?), ?, ?)`, 
-    [title, category, rating, review])
+    `INSERT INTO media (title, category_id, rating, review, uid) VALUES (?, (SELECT id FROM categories WHERE category = ?), ?, ?, ?)`, 
+    [title, category, rating, review, uid])
 }
 
 export async function getCategories(){

@@ -4,6 +4,7 @@ import { Media } from '../models/Media'
 function MediaTable({mediaList}: {mediaList: Media[]}){
     return (
         <div className='media'>
+        { !!mediaList && mediaList.length > 0 ?            
             <table className='media-table'>
                 <thead>
                     <tr>
@@ -27,7 +28,9 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
                     }
                 </tbody>
             </table>
+        : null} 
         </div>
+
     )
 }
 

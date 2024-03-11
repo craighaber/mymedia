@@ -7,7 +7,7 @@ import { Media } from '../models/Media';
 
 function Account(){
 
-    const {user}: any = UserAuth();
+    const {user, isUserLoaded}: any = UserAuth();
 
     const [showForm, setShowForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
@@ -15,20 +15,26 @@ function Account(){
 
     useEffect(() => {
         fetchMediaData()
-    }, [renderer])
+    }, [renderer, isUserLoaded])
 
     function displayForm(){
         setShowForm(true)
     }
 
     function fetchMediaData(){
-        fetch("http://localhost:8081/media")
-        .then((res)=> res.json())
-        .then((data) => setMediaList(data))
-        .catch((error) => console.log(error))
+            const uid = user?.uid
+            // The user needs to be loaded before we can fetch media data
+            if (uid){
+                fetch(`http://localhost:8081/media/${uid}`)
+                .then((res)=> res.json())
+                .then((data) => setMediaList(data))
+                .catch((error) => console.log(error))
+            }
     }
 
     async function saveMediaEntry(mediaEntry: Media){
+        // Add the uid to the media entry
+        mediaEntry.uid = user?.uid
         await fetch("http://localhost:8081/media", {
             method: "POST",
             headers: {
