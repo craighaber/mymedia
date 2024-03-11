@@ -25,9 +25,17 @@ function Login(){
     }
 
     return( 
-    <> 
-        <p>Login page</p>
-        <GoogleButton onClick={handeGoogleLogin} />
+    <>  
+        <div className="login">
+            <div className="title">
+                <h3 className="title_text">Login</h3>
+            </div>
+            <div className="googleButton">
+                <GoogleButton onClick={handeGoogleLogin} />
+            </div>
+
+        </div>
+
     </>)
 }
 

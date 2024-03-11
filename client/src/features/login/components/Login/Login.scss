@@ -1,0 +1,15 @@
+.login {
+
+    .title {
+        display: flex;
+        justify-content: center;
+
+        &_text {
+            font-size: 4rem;
+        }
+    }
+    .googleButton {
+        display: flex;
+        justify-content: center;
+    }
+}
