@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import './MediaEntryForm.scss'
 import { Media } from '../models/Media'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faX } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
+export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
 
     const intialMedia: Media = {
         title: '',
@@ -54,8 +56,10 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
     }
 
 
+
     return (
         <div className="entry-container">
+            <FontAwesomeIcon className="x" icon={faX} onClick={() => hideMediaEntryForm()}/>
             <form className="entry-form">
                 <div className="entry-grid">
                     <div className="entry-grid_row entry-grid_area-title">
@@ -83,6 +87,6 @@ export default function MediaEntryForm({saveMediaEntry}: {saveMediaEntry:any}){
                     </div>
                 </div>
             </form>
-        </div>
+        </div>    
     )
  }

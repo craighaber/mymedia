@@ -9,7 +9,7 @@ function Account(){
 
     const {user, isUserLoaded}: any = UserAuth();
 
-    const [showForm, setShowForm] = useState(false)
+    const [showMediaEntryForm, setshowMediaEntryForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
     const [renderer, setRenderer] = useState(false)
 
@@ -18,7 +18,11 @@ function Account(){
     }, [renderer, isUserLoaded])
 
     function displayForm(){
-        setShowForm(true)
+        setshowMediaEntryForm(true)
+    }
+
+    function hideMediaEntryForm(){
+        setshowMediaEntryForm(false)
     }
 
     function fetchMediaData(){
@@ -57,7 +61,7 @@ function Account(){
             <button className='add_button' onClick={() => displayForm()}>QUICK ADD</button>
         </div>
         
-        {showForm ? <MediaEntryForm saveMediaEntry={saveMediaEntry}/> : null}
+        {showMediaEntryForm ? <MediaEntryForm saveMediaEntry={saveMediaEntry} hideMediaEntryForm={hideMediaEntryForm}/> : null}
 
         <MediaTable mediaList={mediaList}/>
     </div>
