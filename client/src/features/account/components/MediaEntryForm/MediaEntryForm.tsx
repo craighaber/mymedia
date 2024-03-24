@@ -91,7 +91,6 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         <input type="number" id="rating" name="rating" value={curFormData.rating} onChange={handleFormChange}></input>
                     </div>
                     <textarea className= "entry-grid_area-review" placeholder='Add a review...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
-                    {/* <div class='error-message'>{errorMessage}</div> */}
                     <div className="entry-grid_row entry-grid_area-error">
                         {errorMessage}
                     </div>

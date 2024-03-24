@@ -27,10 +27,10 @@
 
 .entry-form {
     width: 90%;
+    height: 90%;
 }
 
 .entry-grid {
-    // position: relative;
     display: grid;
     gap: 2rem 0;
     grid-template-areas:
@@ -38,6 +38,7 @@
     ". review review review ."
     ". error error error ."
     "save save save save save";
+
     &_row{
         width: 20%;
     }
@@ -83,6 +84,29 @@
             letter-spacing: 0;
             
         }
+    }
+}
+
+
+@media (max-width: 650px) {
+    .entry-container {
+        height: 35rem;
+    }
+    .entry-grid {
+        display: grid;
+        grid-template-areas: 
+        "title"
+        "category"
+        "rating"
+        "review"
+        "error"
+        "save";
+    }
+    .entry-grid_area-error {
+        margin-bottom: 2rem;
+    }
+    .entry-grid_area-review {
+        max-width: 90%;
     }
 }
 

@@ -44,17 +44,3 @@ app.use((err, req, res, next) => {
 app.listen(process.env.NODE_PORT, () => {
     console.log("listening")
 })
-
-
-// *********************************************************
-
-// Global error handler
-app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send('Unexpected Server Error')
-})
-
-app.listen(process.env.NODE_PORT), () =>{
-    console.log("listening")
-}
-
