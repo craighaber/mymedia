@@ -7,7 +7,7 @@ import { Media } from '../models/Media';
 
 function Account(){
 
-    const {user, isUserLoaded}: any = UserAuth();
+    const {user}: any = UserAuth();
 
     const [showMediaEntryForm, setshowMediaEntryForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
@@ -15,7 +15,7 @@ function Account(){
 
     useEffect(() => {
         fetchMediaData()
-    }, [renderer, isUserLoaded])
+    }, [renderer, user])
 
     function displayForm(){
         setshowMediaEntryForm(true)

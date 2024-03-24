@@ -3,9 +3,18 @@ import './Home.scss';
 import RoutePaths from '../../../../globals/constants/RoutePaths';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { UserAuth } from '../../../../globals/context/AuthContext';
+import { useEffect } from 'react';
 
 export default function Home(){
     const navigate = useNavigate()
+    const { user }: any = UserAuth()
+
+    useEffect(() => {
+        if(user){
+            navigate(RoutePaths.Account)
+        }
+    }, [user])
 
     const handleLogin = () => {
         try{
