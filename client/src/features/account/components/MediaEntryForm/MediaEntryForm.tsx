@@ -81,7 +81,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         <select id="category" name="category" value={curFormData.category} className= {missingCategory ? 'error-border': undefined}  onChange={handleFormChange}>
                             <option disabled value="">Choose a category</option>
                             {categories.map(category => {
-                                return <option selected key={category} value={category}>{category}</option>
+                                return <option key={category} value={category}>{category}</option>
                             })}
                         </select>
                         {missingCategory && <span className="required-text">Please provide a category</span>}

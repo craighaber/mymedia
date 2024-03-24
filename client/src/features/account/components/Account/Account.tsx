@@ -12,11 +12,10 @@ function Account(){
 
     const [showMediaEntryForm, setshowMediaEntryForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
-    const [renderer, setRenderer] = useState(false)
 
     useEffect(() => {
         fetchMediaData()
-    }, [renderer, user])
+    }, [user])
 
     function displayForm(){
         setshowMediaEntryForm(true)
@@ -47,16 +46,14 @@ function Account(){
             },
             body: JSON.stringify(mediaEntry)
         }).then(res => {
-            console.log('here first')
             if (res.status === 409) {
                 throw Error('You already have a media entry with this title. Please choose a different title.')
             } else if (!res.ok) {
                 throw Error(GENERIC_ERROR_MESSAGE)
             }
         })
-        // TODO: This is not ideal to force an update this way
-        // Issue is if the mediaList is a dependnecy of useEffect it causes an infinite loop
-        setRenderer(!renderer)
+        // Refresh table
+        fetchMediaData();
     }
 
     return (
