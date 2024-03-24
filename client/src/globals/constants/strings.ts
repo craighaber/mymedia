@@ -1,0 +1,1 @@
+export const GENERIC_ERROR_MESSAGE = 'An unexpected error occured. Please contact support or try again later.'

@@ -3,6 +3,7 @@ import './MediaEntryForm.scss'
 import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
+import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
 
 
 export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
@@ -14,18 +15,23 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
     const [categories, setCategories] = useState<string[]>([])
     const [curFormData, setCurFormData] = useState(intialMedia)
     const [missingTitle, setMissingTitle]  = useState(false);
-    const [missingCategory, setMissingCategory] = useState(false);
+    const [missingCategory, setMissingCategory] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(()=> {
         fetch("http://localhost:8081/categories")
-        .then((res)=> res.json())
+        .then((res)=> {
+            return res.json();
+        } )
         .then((data) => setCategories(data))
-        .catch((error) => console.log(error))
+        .catch((error) => {
+            setErrorMessage(GENERIC_ERROR_MESSAGE)
+            console.log(error)
+        })
     }, [])
 
     function handleFormChange(e: any){
         const {name, value} = e.target
-        console.log(curFormData)
         setCurFormData({
             ...curFormData,
             [name]: value
@@ -47,10 +53,13 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
         }  else {
             setMissingCategory(false)
         }
+
+        // Reset the error message
+        setErrorMessage('')
         
         // Save the form when all required values are set
         if (curFormData.title !== '' && curFormData.category !== ''){
-            saveMediaEntry(curFormData)
+            saveMediaEntry(curFormData).catch((error: any) => setErrorMessage(error.message))
         }
         
     }
@@ -82,6 +91,10 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         <input type="number" id="rating" name="rating" value={curFormData.rating} onChange={handleFormChange}></input>
                     </div>
                     <textarea className= "entry-grid_area-review" placeholder='Add a review...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                    {/* <div class='error-message'>{errorMessage}</div> */}
+                    <div className="entry-grid_row entry-grid_area-error">
+                        {errorMessage}
+                    </div>
                     <div className='entry-grid_row entry-grid_area-save'>
                         <button id="save" onClick={(e)=> submitForm(e)}>Save</button>
                     </div>

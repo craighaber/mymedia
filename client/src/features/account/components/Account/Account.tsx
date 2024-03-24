@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import MediaEntryForm from '../MediaEntryForm/MediaEntryForm';
 import MediaTable from '../MediaTable/MediaTable';
 import { Media } from '../models/Media';
+import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings';
 
 function Account(){
 
@@ -45,7 +46,14 @@ function Account(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(mediaEntry)
-        }).catch((error) => console.log(error))
+        }).then(res => {
+            console.log('here first')
+            if (res.status === 409) {
+                throw Error('You already have a media entry with this title. Please choose a different title.')
+            } else if (!res.ok) {
+                throw Error(GENERIC_ERROR_MESSAGE)
+            }
+        })
         // TODO: This is not ideal to force an update this way
         // Issue is if the mediaList is a dependnecy of useEffect it causes an infinite loop
         setRenderer(!renderer)
