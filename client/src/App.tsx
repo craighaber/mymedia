@@ -17,6 +17,7 @@ function App() {
           <Route path={RoutePaths.Home} element={<Home/>} />
           <Route path={RoutePaths.Login} element={<Login/>} />
           <Route path={RoutePaths.Account} element={<Protected><Account/></Protected>} />
+          <Route path={RoutePaths.MediaEntry} element={<Protected><Account/></Protected>}/>
         </Routes>
       </AuthContextProvider>
     </>

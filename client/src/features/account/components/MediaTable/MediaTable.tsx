@@ -5,8 +5,10 @@ import { ColDef, SizeColumnsToFitGridStrategy, GridOptions } from 'ag-grid-commu
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
+    const navigate = useNavigate()
     const [colDefs, setColDefs] = useState<ColDef[]>([
         {headerName: 'Title', field: "title", colId: "title"},
         {headerName: 'Category', field: "category", colId: "category"},
@@ -29,6 +31,9 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     };
     const gridRef = useRef<any>();
     const gridOptions: GridOptions = {
+        onRowClicked: (event) => {
+            navigate()
+        }
     }
     return (
         <div className='media'>

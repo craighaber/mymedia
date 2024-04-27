@@ -19,6 +19,10 @@
     --ag-header-background-color: #{v.$secondary-color} !important;
     --ag-odd-row-background-color: #{v.$white-color} !important;
 
+    & :hover {
+        cursor: pointer;
+    }
+
     .ag-header-cell-text {
         font-size: 1.8rem;
     }
