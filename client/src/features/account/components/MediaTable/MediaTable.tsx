@@ -1,33 +1,49 @@
 import './MediaTable.scss'
 import { Media } from '../models/Media'
+import { AgGridReact } from 'ag-grid-react'
+import { ColDef, SizeColumnsToFitGridStrategy, GridOptions } from 'ag-grid-community';
+import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
+import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
+import { useRef, useState } from 'react';
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
+    const [colDefs, setColDefs] = useState<ColDef[]>([
+        {headerName: 'Title', field: "title", colId: "title"},
+        {headerName: 'Category', field: "category", colId: "category"},
+        {headerName: 'Rating', field: "rating", colId: "rating", filter: 'agNumberColumnFilter', valueGetter: (params: any) => params.data.rating ? +params.data.rating: null},
+        {headerName: 'Review', field: "review", colId: "review"}
+    ])
+    const defaultColDef: ColDef = {
+        filter: "agTextColumnFilter",
+        suppressHeaderFilterButton: true,
+    }
+    const autoSizeStrategy: SizeColumnsToFitGridStrategy  = {
+        type: 'fitGridWidth',
+
+        columnLimits: [
+            {colId: 'title', minWidth: 180, maxWidth: 250},
+            {colId: 'category', minWidth: 180, maxWidth: 200},
+            {colId: 'rating', minWidth: 180, maxWidth: 150},
+            { colId: 'review', minWidth: 500 }
+        ]
+    };
+    const gridRef = useRef<any>();
+    const gridOptions: GridOptions = {
+    }
     return (
         <div className='media'>
-        { !!mediaList && mediaList.length > 0 ?            
-            <table className='media-table'>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Rating</th>
-                        <th>Review</th>
-                    </tr>
-                 
-                </thead>
-                <tbody>
-                    {
-                        mediaList.map((entry: Media)=> {
-                            return <tr key={entry.title}>
-                            <td>{entry.title}</td>
-                            <td>{entry.category}</td>
-                            <td>{entry.rating}</td>
-                            <td>{entry.review}</td>
-                            </tr>
-                        })
-                    }
-                </tbody>
-            </table>
+        { !!mediaList && mediaList.length > 0 ?   
+            <div className="ag-theme-quartz media-table">
+                <AgGridReact
+                    ref={gridRef}
+                    columnDefs={colDefs}
+                    defaultColDef={defaultColDef}
+                    rowData={mediaList}
+                    autoSizeStrategy={autoSizeStrategy}
+                    gridOptions={ gridOptions }
+                    suppressMenuHide={true}
+                />
+             </div>        
         : null} 
         </div>
 

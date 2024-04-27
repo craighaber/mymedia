@@ -2,6 +2,7 @@
 - seperate sign up page to avoid confusion
 
 Table ideas
+USE AG GRID community and override styles with my own, easiest and best solution
 - might not need pagination, see how MAL does it
 - could scroll like notes app
 - stil would want search and filter by category
