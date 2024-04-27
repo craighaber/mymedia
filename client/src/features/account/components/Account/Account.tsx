@@ -26,10 +26,10 @@ function Account(){
     }
 
     function fetchMediaData(){
-            const uid = user?.uid
+            const userId = user?.uid
             // The user needs to be loaded before we can fetch media data
-            if (uid){
-                fetch(`http://localhost:8081/media/${uid}`)
+            if (userId){
+                fetch(`http://localhost:8081/media/${userId}`)
                 .then((res)=> res.json())
                 .then((data) => setMediaList(data))
                 .catch((error) => console.log(error))
@@ -37,8 +37,8 @@ function Account(){
     }
 
     async function saveMediaEntry(mediaEntry: Media){
-        // Add the uid to the media entry
-        mediaEntry.uid = user?.uid
+        // Add the userId to the media entry
+        mediaEntry.userId = user?.uid
         await fetch("http://localhost:8081/media", {
             method: "POST",
             headers: {

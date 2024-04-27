@@ -10,15 +10,15 @@ app.use(cors())
 //Allows express to parse JSON request bodies
 app.use(express.json()) 
 
-app.get('/media/:uid', async (req, res) => {
-    const media = await getMedia(req.params.uid)
+app.get('/media/:userId', async (req, res) => {
+    const media = await getMedia(req.params.userId)
     res.send(media)
 })
 
 app.post('/media', async (req, res, next) => {
-    const {title, category, rating, review, uid} = req.body 
+    const {title, category, rating, review, userId} = req.body 
     try {
-        await addMedia(title, category, rating, review, uid)
+        await addMedia(title, category, rating, review, userId)
         res.sendStatus(201)
     } catch (error) {
         if (error.code === 'ER_DUP_ENTRY') {

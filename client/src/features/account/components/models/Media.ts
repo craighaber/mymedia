@@ -3,5 +3,5 @@ export interface Media{
     category: string
     rating?: number
     review?: string
-    uid?: string
+    userId?: string
 }

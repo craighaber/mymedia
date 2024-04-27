@@ -29,7 +29,7 @@ function Navbar(){
             <ul className="navbar_links">
                 {/* <li>HOME</li>
                 <li>DISCOVER</li> */}
-                <li>{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>LOGOUT</button>: <button className="navbar_login" onClick={handleLogin}>LOGIN</button>}</li>
+                <li>{user?.userId ? <button className="navbar_logout" onClick={handleLogout}>LOGOUT</button>: <button className="navbar_login" onClick={handleLogin}>LOGIN</button>}</li>
              
             </ul>
         </div>

@@ -32,9 +32,10 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     const gridRef = useRef<any>();
     const gridOptions: GridOptions = {
         onRowClicked: (event) => {
-            navigate()
+            // navigate()
         }
     }
+    console.log(mediaList)
     return (
         <div className='media'>
         { !!mediaList && mediaList.length > 0 ?   
