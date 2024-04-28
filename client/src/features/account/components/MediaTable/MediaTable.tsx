@@ -39,7 +39,6 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     console.log(mediaList)
     return (
         <div className='media'>
-        { !!mediaList && mediaList.length > 0 ?   
             <div className="ag-theme-quartz media-table">
                 <AgGridReact
                     ref={gridRef}
@@ -51,7 +50,6 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
                     suppressMenuHide={true}
                 />
              </div>        
-        : null} 
         </div>
 
     )
