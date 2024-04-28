@@ -1,8 +1,14 @@
 @use '../../../../variables.scss' as v;
 
-.entry-container{
+.entry-modal{
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     margin: 3rem auto;
-    height: 22rem;
+    height: 25rem;
     width: 90%;
     border-radius: 1rem;
     background-color: v.$white-color-darker;
@@ -10,13 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
-
-.x {
-    position: absolute;
-    right: 1.2rem;
-    top: 1.2rem;
 }
 
 .entry-form {
@@ -56,7 +55,7 @@
     }
     &_area-review {
         grid-area: review;
-        height: 6rem;
+        height: 10rem;
         margin-bottom: -0.75rem;
     }
     &_area-error {
@@ -82,9 +81,9 @@
 }
 
 
-@media (max-width: 650px) {
-    .entry-container {
-        height: 35rem;
+@media screen and (max-width: 768px) {
+    .entry-modal {
+        height: 39rem;
     }
     .entry-grid {
         display: grid;
@@ -108,8 +107,4 @@
     color: v.$error-color;
     position: absolute;
     width: 30rem;
-}
-
-.error-border{
-    @include v.error-border;
 }

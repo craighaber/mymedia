@@ -54,7 +54,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
             navigate(RoutePaths.MediaEntryBase + `${event.data.id}`)
         }
     }
-    console.log(mediaList)
+
     return (
         <div className='media-table-container'>
             <div className="ag-theme-quartz media-table">

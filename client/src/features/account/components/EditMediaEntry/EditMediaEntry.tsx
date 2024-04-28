@@ -6,13 +6,13 @@ import { Media } from "../models/Media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RoutePaths from "../../../../globals/constants/RoutePaths";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
-import Modal from "../../../global/modal/Modal";
+import DecisionModal from "../../../global/modal/DecisionModal";
 
 export default function EditMediaEntry(){
 
     const {id} = useParams();
     const [mediaEntry, setMediaEntry] = useState<Media | null>(null)
-    const [showModal, setShowModal] = useState(false)
+    const [showDecisionModal, setShowDecisionModal] = useState(false)
     
     const navigate = useNavigate()
     useEffect(() => {
@@ -30,12 +30,12 @@ export default function EditMediaEntry(){
         navigate(RoutePaths.Account)
     } 
 
-    function showDeleteModal(){
-        setShowModal(true);
+    function showDeleteDecisionModal(){
+        setShowDecisionModal(true);
     }
 
-    function hideDeleteModal(){
-        setShowModal(false);
+    function hideDeleteDecisionModal(){
+        setShowDecisionModal(false);
     }
 
     const deleteEntry = () => {
@@ -51,16 +51,16 @@ export default function EditMediaEntry(){
 
     return (
         <div className="edit-entry">
-            {showModal && 
-            <Modal 
+            {showDecisionModal && 
+            <DecisionModal 
                 message={`Are you sure you want to delete your entry for '${mediaEntry?.title}'?`}
-                actionButtonLabel="DELETE"
+                actionButtonLabel="Delete"
                 actionFunction={deleteEntry}
-                closeFunction={hideDeleteModal}
+                closeFunction={hideDeleteDecisionModal}
             />}
             <div className="icons">
                 <FontAwesomeIcon className="icon" icon={faArrowLeft} onClick={() => backToAccount()}></FontAwesomeIcon>
-                <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteModal()}></FontAwesomeIcon>
+                <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteDecisionModal()}></FontAwesomeIcon>
             </div>
             <table>
                 <tbody>

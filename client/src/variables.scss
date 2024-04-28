@@ -26,7 +26,3 @@ $above-table-height-mobile: 10rem;
         background-color: $tertiary-lightened-color;
     }
 }
-
-@mixin error-border {
-    border: 0.1rem solid red;
-}

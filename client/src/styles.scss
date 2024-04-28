@@ -24,6 +24,9 @@ html, body {
     color: v.$white-color;
 }
 
+.error-border {
+    border: 0.1rem solid red;
+}
 
 .icon {
     font-size: 2.2rem;
@@ -32,4 +35,23 @@ html, body {
         cursor: pointer;
         color: v.$secondary-color;
     }
+}
+
+.x {
+    position: absolute;
+    right: 1.2rem;
+    top: 1.2rem;
+}
+
+// The modal-backdrop is a container representing the entire screen
+// It exists so the modal can blur the background when it is open
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.2rem);
+    z-index: 1;
 }

@@ -24,7 +24,7 @@
         justify-content: center;
         height: 50%;
         &_button{
-            @include v.button(25rem, 4rem, 3rem);
+            @include v.button(21rem, 3.5rem, 2.5rem);
         }
 
     }
@@ -39,15 +39,14 @@
     .account {
         .table-title{
             &_text {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
 
             }
         }
 
         .add{
-            height: v.$above-table-height-mobile;
             &_button{
-                @include v.button(20rem, 3rem, 2rem);
+                @include v.button(17rem, 3rem, 2rem);
             }
         }
     }
