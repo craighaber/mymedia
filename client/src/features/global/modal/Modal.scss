@@ -1,0 +1,46 @@
+@use '../../../variables.scss' as v;
+
+// The modal-backdrop is a container representing the entire screen
+// It exists so the modal can blur the background when it is open
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.3rem);
+}
+
+.modal {
+    margin: 1rem auto;
+    padding: 1rem;
+    height: 10rem;
+    width: 50%;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    background-color: v.$white-color-darker;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    border: 0.2rem solid v.$secondary-color;
+
+    &_message {
+        text-align: center;
+    }
+
+    &_buttons{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: space-around;
+        button {
+            font-size: 1rem;
+            @include v.button(11rem, 3.5rem, 1.8rem);
+        }
+        
+    }
+}
+
+

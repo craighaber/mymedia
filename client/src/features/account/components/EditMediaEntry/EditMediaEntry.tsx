@@ -6,11 +6,13 @@ import { Media } from "../models/Media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RoutePaths from "../../../../globals/constants/RoutePaths";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../../../global/modal/Modal";
 
 export default function EditMediaEntry(){
 
     const {id} = useParams();
     const [mediaEntry, setMediaEntry] = useState<Media | null>(null)
+    const [showModal, setShowModal] = useState(false)
     
     const navigate = useNavigate()
     useEffect(() => {
@@ -28,7 +30,15 @@ export default function EditMediaEntry(){
         navigate(RoutePaths.Account)
     } 
 
-    function deleteEntry(){
+    function showDeleteModal(){
+        setShowModal(true);
+    }
+
+    function hideDeleteModal(){
+        setShowModal(false);
+    }
+
+    const deleteEntry = () => {
         fetch(`${API_BASE_URL}/media-entry/${id}`, {method: 'DELETE'}).
         then((res) => {
             if (res.ok){
@@ -41,9 +51,16 @@ export default function EditMediaEntry(){
 
     return (
         <div className="edit-entry">
+            {showModal && 
+            <Modal 
+                message={`Are you sure you want to delete your entry for '${mediaEntry?.title}'?`}
+                actionButtonLabel="DELETE"
+                actionFunction={deleteEntry}
+                closeFunction={hideDeleteModal}
+            />}
             <div className="icons">
                 <FontAwesomeIcon className="icon" icon={faArrowLeft} onClick={() => backToAccount()}></FontAwesomeIcon>
-                <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => deleteEntry()}></FontAwesomeIcon>
+                <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteModal()}></FontAwesomeIcon>
             </div>
             <table>
                 <tbody>
