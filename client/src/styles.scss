@@ -23,3 +23,13 @@ html, body {
     background-color: v.$primary-color;
     color: v.$white-color;
 }
+
+
+.icon {
+    font-size: 2.2rem;
+    color: v.$primary-color;
+    &:hover{
+        cursor: pointer;
+        color: v.$secondary-color;
+    }
+}

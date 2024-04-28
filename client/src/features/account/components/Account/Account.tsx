@@ -5,6 +5,7 @@ import MediaEntryForm from '../MediaEntryForm/MediaEntryForm';
 import MediaTable from '../MediaTable/MediaTable';
 import { Media } from '../models/Media';
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings';
+import { API_BASE_URL } from '../../../../globals/constants/urls';
 
 function Account(){
 
@@ -29,7 +30,7 @@ function Account(){
             const userId = user?.uid
             // The user needs to be loaded before we can fetch media data
             if (userId){
-                fetch(`http://localhost:8081/media/${userId}`)
+                fetch(`${API_BASE_URL}/media/${userId}`)
                 .then((res)=> res.json())
                 .then((data) => setMediaList(data))
                 .catch((error) => console.log(error))
@@ -39,7 +40,7 @@ function Account(){
     async function saveMediaEntry(mediaEntry: Media){
         // Add the userId to the media entry
         mediaEntry.userId = user?.uid
-        await fetch("http://localhost:8081/media", {
+        await fetch(`${API_BASE_URL}/media`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

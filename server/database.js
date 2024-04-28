@@ -12,8 +12,17 @@ const pool = mysql.createPool({
 
 
 export async function getMedia(userId){
-    const [rows] = await pool.query('SELECT media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id WHERE media.user_id = ?', [userId])
+    const [rows] = await pool.query('SELECT media.id, media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id WHERE media.user_id = ? ORDER BY  media.title', [userId])
     return rows
+}
+
+export async function getMediaEntry(id){
+    const [rows] = await pool.query('SELECT media.id, media.title, categories.category, media.rating, media.review from media JOIN categories ON media.category_id = categories.id WHERE media.id = ?', [id])
+    if (rows.length === 0){
+        return null
+    } else {
+        return rows[0]
+    }
 }
 
 export async function addMedia(title, category, rating, review, userId){

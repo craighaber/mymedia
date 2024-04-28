@@ -6,6 +6,7 @@ import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the 
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import RoutePaths from '../../../../globals/constants/RoutePaths';
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
     const navigate = useNavigate()
@@ -32,7 +33,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     const gridRef = useRef<any>();
     const gridOptions: GridOptions = {
         onRowClicked: (event) => {
-            // navigate()
+            navigate(RoutePaths.MediaEntryBase + `${event.data.id}`)
         }
     }
     console.log(mediaList)

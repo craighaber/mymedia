@@ -14,12 +14,6 @@
 }
 
 .x {
-    font-size: 2.2rem;
-    color: v.$primary-color;
-    &:hover{
-        cursor: pointer;
-        color: v.$secondary-color;
-    }
     position: absolute;
     right: 1.2rem;
     top: 1.2rem;

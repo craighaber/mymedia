@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getMedia, getCategories, addMedia} from './database.js'
+import {getMedia, getMediaEntry, getCategories, addMedia} from './database.js'
 
 dotenv.config()
 
@@ -13,6 +13,11 @@ app.use(express.json())
 app.get('/media/:userId', async (req, res) => {
     const media = await getMedia(req.params.userId)
     res.send(media)
+})
+
+app.get('/media-entry/:id', async (req,res) => {
+    const mediaEntry = await getMediaEntry(req.params.id);
+    res.send(mediaEntry)
 })
 
 app.post('/media', async (req, res, next) => {

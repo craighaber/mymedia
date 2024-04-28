@@ -1,5 +1,6 @@
 export interface Media{
-    title: string
+    id: string,
+    title: string,
     category: string
     rating?: number
     review?: string

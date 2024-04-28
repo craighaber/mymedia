@@ -4,11 +4,13 @@ import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
+import { API_BASE_URL } from '../../../../globals/constants/urls'
 
 
 export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
 
     const intialMedia: Media = {
+        id: '',
         title: '',
         category: ''
     }
@@ -19,7 +21,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(()=> {
-        fetch("http://localhost:8081/categories")
+        fetch(`${API_BASE_URL}/categories`)
         .then((res)=> {
             return res.json();
         } )
@@ -68,7 +70,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
 
     return (
         <div className="entry-container">
-            <FontAwesomeIcon className="x" icon={faX} onClick={() => hideMediaEntryForm()}/>
+            <FontAwesomeIcon className="x icon" icon={faX} onClick={() => hideMediaEntryForm()}/>
             <form className="entry-form">
                 <div className="entry-grid">
                     <div className="entry-grid_row entry-grid_area-title">

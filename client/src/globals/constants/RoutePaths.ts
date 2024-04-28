@@ -2,7 +2,8 @@ enum RoutePaths  {
     Home = '/',
     Login = '/login',
     Account = '/account',
-    MediaEntry = '/media-entry/:id',
+    MediaEntryBase = '/media-entry/',
+    MediaEntry = MediaEntryBase + ':id',
 }
 
 export default RoutePaths
