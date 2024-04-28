@@ -20,19 +20,11 @@ app.get('/media-entry/:id', async (req,res) => {
     res.send(mediaEntry)
 })
 
-app.post('/media', async (req, res, next) => {
+app.post('/media', async (req, res) => {
     const {title, category, rating, review, userId} = req.body 
-    try {
-        await addMedia(title, category, rating, review, userId)
-        res.sendStatus(201)
-    } catch (error) {
-        if (error.code === 'ER_DUP_ENTRY') {
-            return res.sendStatus(409)    
-        }
-        // When you call next(error) in your route handler or another middleware function,
-        // Express skips the remaining non-error handling routing and middleware functions and proceeds to the next error handling middleware function. 
-        next(error)
-    }
+    await addMedia(title, category, rating, review, userId)
+    res.sendStatus(201)
+    
 })
 
 app.delete('/media-entry/:id', async (req, res) => {

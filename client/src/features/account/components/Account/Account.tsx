@@ -47,9 +47,7 @@ function Account(){
             },
             body: JSON.stringify(mediaEntry)
         }).then(res => {
-            if (res.status === 409) {
-                throw Error('You already have a media entry with this title. Please choose a different title.')
-            } else if (!res.ok) {
+            if (!res.ok) {
                 throw Error(GENERIC_ERROR_MESSAGE)
             }
         })
@@ -59,14 +57,16 @@ function Account(){
 
     return (
     <div className="account">
-        <div className='table-title'>
-            <div className='table-title_text'>ALL MEDIA</div>
+        <div className='above-table-container'>
+            <div className='table-title'>
+                <div className='table-title_text'>ALL MEDIA</div>
+            </div>
+            
+            <div className='add'>
+                <button className='add_button' onClick={() => displayForm()}>QUICK ADD</button>
+            </div>
         </div>
-        
-        <div className='add'>
-            <button className='add_button' onClick={() => displayForm()}>QUICK ADD</button>
-        </div>
-        
+   
         {showMediaEntryForm ? <MediaEntryForm saveMediaEntry={saveMediaEntry} hideMediaEntryForm={hideMediaEntryForm}/> : null}
 
         <MediaTable mediaList={mediaList}/>

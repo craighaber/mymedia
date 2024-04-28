@@ -9,6 +9,9 @@ $error-color: #DF4151;
 
 $navbar-height: 6rem;
 
+$above-table-height: 15rem;
+$above-table-height-mobile: 10rem;
+
 @mixin button($width, $height, $font-size) {
     width: $width;
     height: $height;

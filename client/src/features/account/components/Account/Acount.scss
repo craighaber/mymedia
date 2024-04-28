@@ -1,39 +1,28 @@
 @use '../../../../variables.scss' as v;
 
-.account {
-    //height: calc(100% - v.$navbar-height - 0.1rem); Uncomment if want to force page height to be height of view
+.above-table-container {
+    height: v.$above-table-height;
+}
 
+.account {
+    height: calc(100% - v.$navbar-height - 0.1rem); //Forces page height to be height of viewport
     .table-title{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 5rem;
+        height: 50%;
 
         &_text {
-            height: 20%;
             font-size: 4rem;
             margin: 0;
             letter-spacing: 0.3rem;
         }
     }
 
-    .category{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 10rem;
-        &_text {
-            font-size: 4rem;
-            margin: 0;
-        }
-    }
-
     .add{
         display: flex;
-        align-items: center;
         justify-content: center;
-        height: 7rem;
-        margin: 2rem auto;
+        height: 50%;
         &_button{
             @include v.button(25rem, 4rem, 3rem);
         }
@@ -41,6 +30,27 @@
     }
 
 
+}
+
+@media screen and (max-width: 768px){
+    .above-table-container {
+        height: v.$above-table-height-mobile;
+    }
+    .account {
+        .table-title{
+            &_text {
+                font-size: 2.5rem;
+
+            }
+        }
+
+        .add{
+            height: v.$above-table-height-mobile;
+            &_button{
+                @include v.button(20rem, 3rem, 2rem);
+            }
+        }
+    }
 }
 
 
