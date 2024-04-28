@@ -29,7 +29,14 @@ export default function EditMediaEntry(){
     } 
 
     function deleteEntry(){
-        
+        fetch(`${API_BASE_URL}/media-entry/${id}`, {method: 'DELETE'}).
+        then((res) => {
+            if (res.ok){
+                navigate(RoutePaths.Account)
+            } else {
+                console.log('Failed to delete media entry')
+            }
+        })
     }
 
     return (

@@ -26,10 +26,14 @@ export async function getMediaEntry(id){
 }
 
 export async function addMedia(title, category, rating, review, userId){
-        await pool.query(
-        `INSERT INTO media (title, category_id, rating, review, user_id) VALUES (?, (SELECT id FROM categories WHERE category = ?), ?, ?, ?)`, 
-        [title, category, rating, review, userId])
+    await pool.query(
+    `INSERT INTO media (title, category_id, rating, review, user_id) VALUES (?, (SELECT id FROM categories WHERE category = ?), ?, ?, ?)`, 
+    [title, category, rating, review, userId])
     
+}
+
+export async function deleteMediaEntry(id){
+    await pool.query('DELETE FROM media WHERE id = ?', [id])
 }
 
 export async function getCategories(){

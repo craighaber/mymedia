@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getMedia, getMediaEntry, getCategories, addMedia} from './database.js'
+import {getMedia, getMediaEntry, deleteMediaEntry, getCategories, addMedia} from './database.js'
 
 dotenv.config()
 
@@ -30,9 +30,14 @@ app.post('/media', async (req, res, next) => {
             return res.sendStatus(409)    
         }
         // When you call next(error) in your route handler or another middleware function,
-        //Express skips the remaining non-error handling routing and middleware functions and proceeds to the next error handling middleware function. 
+        // Express skips the remaining non-error handling routing and middleware functions and proceeds to the next error handling middleware function. 
         next(error)
     }
+})
+
+app.delete('/media-entry/:id', async (req, res) => {
+    await deleteMediaEntry(req.params.id)
+    res.sendStatus(200);
 })
 
 app.get('/categories', async (req, res) => {
