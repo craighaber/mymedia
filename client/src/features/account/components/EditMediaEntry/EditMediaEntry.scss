@@ -7,9 +7,9 @@
 
 .edit-entry {
     margin: 2rem auto;
-    height: 85%;
-    overflow-y: auto;
+    height: 85vh;
     width: 95%;
+    overflow-y: auto;
     border-radius: 1rem;
     background-color: v.$white-color-darker;
     color: black;
@@ -23,7 +23,7 @@
     &_table {
         width: 100%;
 
-        padding: 1rem;
+        padding: 0 1rem;
 
         border-spacing: 0 2rem;
 
@@ -41,11 +41,11 @@
         }
 
         .edit-entry_review textarea {
-            height: 15rem;
+            height: 20vh;
         }
 
         .edit-entry-notes textarea {
-            height: 20rem;
+            height: 30vh;
         }
 
 
