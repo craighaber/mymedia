@@ -62,23 +62,28 @@ export default function EditMediaEntry(){
                 <FontAwesomeIcon className="icon" icon={faArrowLeft} onClick={() => backToAccount()}></FontAwesomeIcon>
                 <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteDecisionModal()}></FontAwesomeIcon>
             </div>
-            <table>
+            <table className="edit-entry_table">
                 <tbody>
                     <tr>
-                        <td>Title</td>
+                        <td>Title:</td>
                         <td><input value={mediaEntry?.title}></input></td>
                     </tr>
                     <tr>
-                        <td>Category</td>
+                        <td>Category:</td>
                         <td><input value={mediaEntry?.category}></input></td>
                     </tr>
                     <tr>
-                        <td>Rating</td>
+                        <td>Rating:</td>
                         <td><input value={mediaEntry?.rating}></input></td>
                     </tr>
-                    <tr>
-                        <td>Review</td>
-                        <td><input value={mediaEntry?.review}></input></td>
+                    <tr className="edit-entry_review">
+                        <td>Review:</td>
+                        <td><textarea value={mediaEntry?.review}></textarea></td>
+                    </tr>
+
+                    <tr className="edit-entry-notes">
+                        <td>Notes:</td>
+                        <td><textarea></textarea></td>
                     </tr>
                 </tbody>
             </table>

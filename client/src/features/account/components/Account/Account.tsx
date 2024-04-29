@@ -47,7 +47,9 @@ function Account(){
             },
             body: JSON.stringify(mediaEntry)
         }).then(res => {
-            if (!res.ok) {
+            if (res.ok) {
+                hideMediaEntryForm()           
+            } else {
                 throw Error(GENERIC_ERROR_MESSAGE)
             }
         })

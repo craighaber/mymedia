@@ -6,8 +6,9 @@
 }
 
 .edit-entry {
-    margin: 1rem auto;
-    height: 22rem;
+    margin: 2rem auto;
+    height: 85%;
+    overflow-y: auto;
     width: 95%;
     border-radius: 1rem;
     background-color: v.$white-color-darker;
@@ -18,6 +19,41 @@
         justify-content: space-between;
         padding: 1rem 3rem;
     }
+
+    &_table {
+        width: 100%;
+
+        padding: 1rem;
+
+        border-spacing: 0 2rem;
+
+        input, textarea {
+            width: 95%;
+            background-color: v.$white-color;
+            border: 0.1rem solid v.$primary-color;
+        }
+
+        .edit-entry_review, .edit-entry-notes {
+            // Make the label float to the top opf the td
+            td:first-child {
+                display: flex;
+            }
+        }
+
+        .edit-entry_review textarea {
+            height: 15rem;
+        }
+
+        .edit-entry-notes textarea {
+            height: 20rem;
+        }
+
+
+        td:first-child {
+            width: 10rem;
+        }
+    }
+
 
 }
 
