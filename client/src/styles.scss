@@ -55,3 +55,7 @@ html, body {
     backdrop-filter: blur(0.2rem);
     z-index: 1;
 }
+
+input, textarea, select {
+    border: 0.1rem solid v.$primary-color;
+}

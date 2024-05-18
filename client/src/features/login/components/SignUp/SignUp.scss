@@ -1,0 +1,112 @@
+@use '../../../../variables.scss' as v;
+
+.signup {
+   
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+
+    &_inner {
+        width: 50%;
+        background-color: v.$white-color-darker;
+        color: black;
+        border: 0.1rem solid v.$secondary-color;
+        border-radius: 1rem;
+    }
+
+    .title, .google, .account-already, .error {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title{
+        &_text {
+            font-size: 2.5rem;
+        }
+    }
+
+    .google{
+        margin-bottom: 2rem;
+    }
+
+    .or{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1.5rem auto;
+
+        &_line{
+            background-color: lightgray;
+            height: 0.1rem;
+            width: 40%;
+            max-width: 20rem;
+        }
+        &_text{
+            margin: 0 0.5rem;
+        }
+    }
+    
+
+    .form {
+        display: flex;
+        justify-content: center;
+
+        form {
+            width: 100%;
+            
+        }
+
+        
+        &_field {
+       
+            input, label {
+                width: 80%;
+                max-width: 40rem;
+                display: block;
+                margin: 0 auto;
+               
+            }
+
+            input {
+                height: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            label {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+
+    .signup-button {
+        display: flex;
+        justify-content: center;
+        
+        button {
+            @include v.button(13rem, 4rem, 2rem);
+        }
+    }
+
+    .error {
+        margin: 0 1rem 2rem 1rem;
+        color: v.$error-color;
+        font-weight: bold;
+    }
+
+    .account-already{
+        margin: 2rem auto;
+    }
+
+    .link {
+        color: black;
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup {
+        &_inner {
+            width: 90%;
+        }
+    }
+}

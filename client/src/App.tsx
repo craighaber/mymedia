@@ -8,6 +8,7 @@ import { AuthContextProvider } from './globals/context/AuthContext'
 import  RoutePaths from './globals/constants/RoutePaths'
 import Protected from './features/navbar/components/Protected/Protected'
 import EditMediaEntry from './features/account/components/EditMediaEntry/EditMediaEntry'
+import SignUp from './features/login/components/SignUp/SignUp'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={RoutePaths.Home} element={<Home/>} />
           <Route path={RoutePaths.Login} element={<Login/>} />
+          <Route path={RoutePaths.SignUp} element={<SignUp/>} />
           <Route path={RoutePaths.Account} element={<Protected><Account/></Protected>} />
           <Route path={RoutePaths.MediaEntry} element={<Protected><EditMediaEntry/></Protected>}/>
         </Routes>

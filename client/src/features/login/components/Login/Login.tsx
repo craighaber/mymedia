@@ -16,13 +16,7 @@ function Login(){
         }
     }, [user])
 
-    const handeGoogleLogin = async () => {
-        try {
-            await googleLogIn()
-        } catch (error){
-            console.log(error)
-        }
-    }
+
 
     return( 
     <>  
@@ -31,7 +25,7 @@ function Login(){
                 <h3 className="title_text">Login</h3>
             </div>
             <div className="googleButton">
-                <GoogleButton onClick={handeGoogleLogin} />
+                <GoogleButton onClick={googleLogIn} label="Login with Google"/>
             </div>
 
         </div>

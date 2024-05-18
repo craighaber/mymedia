@@ -30,7 +30,6 @@
         input, textarea {
             width: 95%;
             background-color: v.$white-color;
-            border: 0.1rem solid v.$primary-color;
         }
 
         .edit-entry_review, .edit-entry-notes {
@@ -51,6 +50,10 @@
 
         td:first-child {
             width: 10rem;
+        }
+
+        textarea {
+            resize: vertical;
         }
     }
 

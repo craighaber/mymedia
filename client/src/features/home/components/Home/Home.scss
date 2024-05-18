@@ -36,6 +36,8 @@
         margin-bottom: 2rem;
         &_button{
             @include v.button(30rem, 4rem, 3rem);
+            letter-spacing: 0.3rem;
+            word-spacing: 0;
         }
     
     }

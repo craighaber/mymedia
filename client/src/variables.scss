@@ -1,4 +1,5 @@
 $primary-color: #3d348b;
+$primary-lightened-color: #5145b9;
 $secondary-color: #7678ed;
 $tertiary-color: #f7b801;
 $tertiary-lightened-color: #fedd7c;
@@ -12,17 +13,29 @@ $navbar-height: 6rem;
 $above-table-height: 15rem;
 $above-table-height-mobile: 10rem;
 
-@mixin button($width, $height, $font-size) {
+@mixin button($width, $height, $font-size, $isInverse: false) {
     width: $width;
     height: $height;
     font-size: $font-size;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.2rem;
+    word-spacing: -0.1rem;
     border-radius: 1.5rem;
-    border: 0.1rem solid $primary-color;
-    background-color: $tertiary-color;
-    color: $primary-color;
-    &:hover{
-        cursor: pointer;
-        background-color: $tertiary-lightened-color;
+    @if(not $isInverse){
+        border: 0.1rem solid $primary-color;
+        background-color: $tertiary-color;
+        color: $primary-color;
+        &:hover{
+            cursor: pointer;
+            background-color: $tertiary-lightened-color;
+        }
+    } @else {
+        border: 0.1rem solid $tertiary-color;
+        background-color: $primary-color;
+        color: $tertiary-color;
+        &:hover{
+            cursor: pointer;
+            background-color: $primary-lightened-color;
+        }
     }
+    
 }

@@ -1,5 +1,5 @@
 import { useContext, createContext, useEffect, useState } from "react"
-import { GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged} from "firebase/auth"
+import { GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, createUserWithEmailAndPassword} from "firebase/auth"
 import {auth} from '../../firebase'
 
 
@@ -9,10 +9,19 @@ const AuthContext: any = createContext({})
 // Creates and manages the authorization context, a global state for user information
 export const AuthContextProvider = ({children}: any) => {
     const [user, setUser] = useState({})
+
+    const createEmailPasswordUser = (email: string, password: string) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
     
-    const googleLogIn = () => {
-        const provider = new GoogleAuthProvider()
-        signInWithRedirect(auth, provider)
+    const googleLogIn = async () => {
+        try {
+            const provider = new GoogleAuthProvider()
+            await signInWithRedirect(auth, provider)
+        } catch (error) {
+            console.log(error)
+        }
+     
     }
 
     const logout = () => {
@@ -33,7 +42,7 @@ export const AuthContextProvider = ({children}: any) => {
 
     return (
         // The values are what are passed globally through the application
-        <AuthContext.Provider value={{googleLogIn, logout, user}}>
+        <AuthContext.Provider value={{googleLogIn, logout, user, createEmailPasswordUser,}}>
             {children}
         </AuthContext.Provider>
     )
