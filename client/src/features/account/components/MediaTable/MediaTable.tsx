@@ -1,7 +1,7 @@
 import './MediaTable.scss'
 import { Media } from '../models/Media'
 import { AgGridReact } from 'ag-grid-react'
-import { ColDef, SizeColumnsToFitGridStrategy, GridOptions } from 'ag-grid-community';
+import { ColDef, SizeColumnsToFitGridStrategy, GridOptions, CsvExportParams } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
 import { useRef, useState, useEffect } from 'react';
@@ -14,7 +14,8 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
         {headerName: 'Title', field: "title", colId: "title", flex: 5},
         {headerName: 'Category', field: "category", colId: "category", flex: 4,}, 
         {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', valueGetter: (params: any) => params.data.rating ? +params.data.rating: null},
-        // {headerName: 'Review', field: "review", colId: "review"}
+        {hide: true, headerName: 'Review', field: "review"},
+        {hide: true, headerName: 'Notes', field: "notes"}
     ])
 
     // function handleResize(clientWidth: number){
@@ -57,6 +58,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
 
     return (
         <div className='media-table-container'>
+            {/* <button onClick={() => gridRef.current!.api.exportDataAsCsv()}>Export to CSV</button> */}
             <div className="ag-theme-quartz media-table">
                 <AgGridReact
                     ref={gridRef}

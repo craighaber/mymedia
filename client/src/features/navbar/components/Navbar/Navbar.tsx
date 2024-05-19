@@ -35,8 +35,6 @@ function Navbar(){
         <div className="navbar">
             <div className="navbar_title">MYMEDIA</div>
             <ul className="navbar_links">
-                {/* <li>HOME</li>
-                <li>DISCOVER</li> */}
                 <li>{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>Logout</button>: <button className="navbar_login" onClick={handleLogin}>Login</button>}</li>
                 {!user?.uid && <li><button className="navbar_get-started" onClick={handleSignUp}>Sign Up</button></li>}
             </ul>
