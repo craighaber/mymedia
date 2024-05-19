@@ -58,8 +58,9 @@
 
         
         &_field {
-       
-            input, label {
+            margin-bottom: 3rem;
+            
+            input, label, .error-text {
                 width: 80%;
                 max-width: 40rem;
                 display: block;
@@ -69,7 +70,6 @@
 
             input {
                 height: 3rem;
-                margin-bottom: 3rem;
             }
 
             label {
@@ -100,6 +100,10 @@
     .link {
         color: black;
         margin-left: 1rem;
+    }
+
+    .error-text {
+        color: v.$error-color;
     }
 }
 

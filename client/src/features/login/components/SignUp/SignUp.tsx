@@ -5,7 +5,7 @@ import './SignUp.scss'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import GoogleButton from 'react-google-button';
-import { AuthError, AuthErrorCodes } from 'firebase/auth';
+import { AuthError, AuthErrorCodes, fetchSignInMethodsForEmail } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 
 function SignUp(){
@@ -21,17 +21,72 @@ function SignUp(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [errorEmail, setErrorEmail] = useState('')
+    const [errorPassword, setErrorPassword] = useState('')
+
+
 
     const handleSignUp = async () => {
+
+        // Reset errors
+        setErrorEmail('')
+        setErrorPassword('')
+        setError('')
+
+        const invalidEmailMessage = "Please enter a valid email address."
+        const invalidPasswordMessage = "Please enter a password with 6 or more characters."
+        const defaultErrorMessage = "An unexpected error occured. Please try to Sign up with Google or try again later."
+
+        const emailRe = /^\S+@\S+\.\S+$/
+
+        // Check on client side with basic validation first.
+        if (!email || !emailRe.test(email)){
+            setErrorEmail(invalidEmailMessage)
+        }
+        if (password.length < 6){
+            setErrorPassword(invalidPasswordMessage)
+        }
+
+        if (errorEmail || errorPassword){
+            return
+        }
+
         try {
-            await createEmailPasswordUser(email, password)
+            await createEmailPasswordUser(email, password).then(() => {
+                navigate(RoutePaths.Account)         
+            })
         } catch (error) {
             if (error instanceof FirebaseError ){
-                if (error.code === AuthErrorCodes.EMAIL_EXISTS){
-                    setError("An account with that email already exists. This includes Google accounts.")
+                switch (error.code) {
+                    case ('auth/missing-email'): { //This one isn't a code
+                        setErrorEmail(invalidEmailMessage)
+                        break;
+                    }
+                    case (AuthErrorCodes.EMAIL_EXISTS): {
+                        setErrorEmail("An account with that email already exists. This includes Google accounts.")
+                        break;
+                    } 
+                    case (AuthErrorCodes.INVALID_EMAIL): {
+                        setErrorEmail(invalidEmailMessage)
+                        break;
+                    }
+                    case ('auth/missing-password'): { //This one isn't a code
+                        setErrorPassword(invalidPasswordMessage)
+                        break;
+                    }
+                    case (AuthErrorCodes.WEAK_PASSWORD): {
+                        setErrorPassword(invalidPasswordMessage)
+                        break;
+                    }
+                    default: {
+                        setError(defaultErrorMessage)
+                    }
                 }
+                
+            } else {
+                setError(defaultErrorMessage)
             }
-            setError("An unexpected error occured. Please try to Sign up with Google or try again later.")
+          
             console.log(error)
         }
     }
@@ -54,12 +109,14 @@ function SignUp(){
                 <form>
                     <div className="form_field">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={(e) => setEmail(e?.target?.value)}></input>
+                        <input type="email" id="email" onChange={(e) => setEmail(e?.target?.value)} className={errorEmail ? 'error-border': undefined}></input>
+                        <span className="error-text">{errorEmail}</span>
            
                     </div>
                     <div className="form_field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="password" id="password" onChange={(e) => setPassword(e.target.value)}  className={errorPassword ? 'error-border': undefined}></input>
+                        <span className="error-text">{errorPassword}</span>
                     </div>
 
                 
