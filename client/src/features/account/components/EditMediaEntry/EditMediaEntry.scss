@@ -27,9 +27,20 @@
 
         border-spacing: 0 2rem;
 
-        input, textarea {
+        input, textarea, select {
             width: 95%;
             background-color: v.$white-color;
+        }
+
+        .edit-entry_category select {
+            // Want effect of category being twice as long as rating
+            // For some reason selects are a little less wide than inputs, so need to add a little extra width
+            width: calc(50% + 0.5rem);
+            min-width: 2rem;
+        }
+        .edit-entry_rating input {
+            width: 25%;
+            min-width: 2rem;
         }
 
         .edit-entry_review, .edit-entry-notes {

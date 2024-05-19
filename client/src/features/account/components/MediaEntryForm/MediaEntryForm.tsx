@@ -76,12 +76,12 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                     <div className="entry-grid">
                         <div className="entry-grid_row entry-grid_area-title">
                             <label htmlFor="title">Title</label>
-                            <input id="title" name="title" value={curFormData.title} className={missingTitle ? 'error-border': undefined}  onChange={handleFormChange}/>
+                            <input id="title" name="title" value={curFormData.title} className={missingTitle ? 'error-border': ''}  onChange={handleFormChange}/>
                             { missingTitle && <span className="required-text">Please provide a title</span> }
                         </div>
                         <div className="entry-grid_row entry-grid_area-category">
                             <label htmlFor="category">Category</label>
-                            <select id="category" name="category" value={curFormData.category} className= {missingCategory ? 'error-border': undefined}  onChange={handleFormChange}>
+                            <select id="category" name="category" value={curFormData.category} className= {missingCategory ? 'error-border': ''}  onChange={handleFormChange}>
                                 <option disabled value="">Choose a category</option>
                                 {categories.map(category => {
                                     return <option key={category} value={category}>{category}</option>
@@ -91,7 +91,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         </div>
                         <div className='entry-grid_row entry-grid_area-rating'>
                             <label htmlFor="rating">Rating</label>
-                            <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : undefined } onChange={handleFormChange}></input>
+                            <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : '' } onChange={handleFormChange}></input>
                         </div>
                         <textarea className= "entry-grid_area-review" placeholder='Add a review...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
                         <div className="entry-grid_row entry-grid_area-error">

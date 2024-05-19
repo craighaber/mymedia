@@ -14,6 +14,7 @@ export default function EditMediaEntry(){
     const {id} = useParams();
     const [mediaEntry, setMediaEntry] = useState<Media | null>(null)
     const [showDecisionModal, setShowDecisionModal] = useState(false)
+    const [categories, setCategories] = useState<string[]>([])
     
     const navigate = useNavigate()
     const location = useLocation()
@@ -44,6 +45,17 @@ export default function EditMediaEntry(){
         // So the effect is data is saved to the database in DEBOUNCE_TIME milliseconds after the user stops typing
         return () => clearTimeout(delayDebounceFn)
       }, [mediaEntry])
+
+      useEffect(()=> {
+        fetch(`${API_BASE_URL}/categories`)
+        .then((res)=> {
+            return res.json();
+        } )
+        .then((data) => setCategories(data))
+        .catch((error) => {
+            console.log(error)
+        })
+    }, [])
 
 
     function backToAccount(){
@@ -83,7 +95,7 @@ export default function EditMediaEntry(){
     }
 
   
-    const handleEditMediaEntry = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleEditMediaEntry = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const {name, value} = e.target
         if (mediaEntry){
             // Update the media entry with the changed field
@@ -109,17 +121,23 @@ export default function EditMediaEntry(){
             </div>
             <table className="edit-entry_table">
                 <tbody>
-                    <tr>
+                    <tr className="edit-entry_title">
                         <td>Title:</td>
                         <td><input name="title" value={mediaEntry?.title ?? ''} onChange={handleEditMediaEntry}></input></td>
                     </tr>
-                    <tr>
+                    <tr className="edit-entry_category">
                         <td>Category:</td>
-                        <td><input name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}></input></td>
+                        <td>
+                            <select name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}>
+                                {categories.map((category) => {
+                                    return <option key={category} value={category}>{category}</option>
+                                })}
+                            </select>
+                        </td>
                     </tr>
-                    <tr>
+                    <tr className="edit-entry_rating">
                         <td>Rating:</td>
-                        <td><input name="rating" value={mediaEntry?.rating ?? ''} onChange={handleEditMediaEntry}></input></td>
+                        <td><input name="rating" type="number" value={mediaEntry?.rating ? +mediaEntry?.rating : ''} onChange={handleEditMediaEntry}></input></td>
                     </tr>
                     <tr className="edit-entry_review">
                         <td>Review:</td>
