@@ -1,0 +1,1 @@
+export const USER_HAS_LOGGED_IN_BEFORE = 'userHasLoggedInBefore'

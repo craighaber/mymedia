@@ -4,6 +4,7 @@ import { UserAuth } from '../../../../globals/context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import RoutePaths from '../../../../globals/constants/RoutePaths'
 import { useEffect, useState } from 'react'
+import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage'
 
 function Login(){
 
@@ -12,6 +13,7 @@ function Login(){
     useEffect( () => {
         // Redirect to the account page when the user is logged in or comples login
         if (user != null){
+            localStorage.setItem(USER_HAS_LOGGED_IN_BEFORE, JSON.stringify(true))
             navigate(RoutePaths.Account)
         }
     }, [user])

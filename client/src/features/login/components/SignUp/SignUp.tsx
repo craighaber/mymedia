@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import GoogleButton from 'react-google-button';
 import { AuthErrorCodes } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
+import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage';
 
 function SignUp(){
 
@@ -15,6 +16,7 @@ function SignUp(){
     useEffect( () => {
         // Redirect to the account page when the user is logged in or comples login
         if (user != null){
+            localStorage.setItem(USER_HAS_LOGGED_IN_BEFORE, JSON.stringify(true))
             navigate(RoutePaths.Account)
         }
     }, [user])
@@ -54,6 +56,7 @@ function SignUp(){
         try {
             await createEmailPasswordUser(email, password).then(() => {
                 // Redirect to account page (sometimes the useEffect above does not trigger)
+                localStorage.setItem(USER_HAS_LOGGED_IN_BEFORE, JSON.stringify(true))
                 navigate(RoutePaths.Account)         
             })
         } catch (error) {

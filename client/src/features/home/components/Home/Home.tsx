@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { UserAuth } from '../../../../globals/context/AuthContext';
 import { useEffect } from 'react';
+import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage';
 
 export default function Home(){
     const navigate = useNavigate()
@@ -16,9 +17,15 @@ export default function Home(){
         }
     }, [user])
 
-    const handleLogin = () => {
+    const handleGetStarted = () => {
+        // Navigate to Sign up only if the user has not logged in on the browser or device before
+        let path = RoutePaths.SignUp
+        const userHasLoggedInBefore: string | null = localStorage.getItem(USER_HAS_LOGGED_IN_BEFORE)
+        if (userHasLoggedInBefore && JSON.parse(userHasLoggedInBefore) === true){
+            path = RoutePaths.Login
+        }
         try{
-            navigate(RoutePaths.Login)
+            navigate(path)
         } catch (error){
             console.log(error)
         }
@@ -40,7 +47,7 @@ export default function Home(){
         </div>
         
         <div className='start'>
-            <button className='start_button' onClick={handleLogin}>GET STARTED</button>
+            <button className='start_button' onClick={handleGetStarted}>GET STARTED</button>
         </div>
         
     </div>
