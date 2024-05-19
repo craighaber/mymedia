@@ -24,7 +24,7 @@ export default function EditMediaEntry(){
         .catch((error) => {
             console.log(error)
         })
-    })
+    }, [])
 
     function backToAccount(){
         navigate(RoutePaths.Account)
@@ -49,6 +49,17 @@ export default function EditMediaEntry(){
         })
     }
 
+
+    const handleEditEntry = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const {name, value} = e.target
+        if (mediaEntry){
+            setMediaEntry({
+                ...mediaEntry!,
+                [name]: value
+            })
+        }
+    }
+        
     return (
         <div className="edit-entry">
             {showDecisionModal && 
@@ -66,24 +77,24 @@ export default function EditMediaEntry(){
                 <tbody>
                     <tr>
                         <td>Title:</td>
-                        <td><input value={mediaEntry?.title}></input></td>
+                        <td><input name="title" value={mediaEntry?.title} onChange={handleEditEntry}></input></td>
                     </tr>
                     <tr>
                         <td>Category:</td>
-                        <td><input value={mediaEntry?.category}></input></td>
+                        <td><input name="category" value={mediaEntry?.category} onChange={handleEditEntry}></input></td>
                     </tr>
                     <tr>
                         <td>Rating:</td>
-                        <td><input value={mediaEntry?.rating}></input></td>
+                        <td><input name="rating" value={mediaEntry?.rating} onChange={handleEditEntry}></input></td>
                     </tr>
                     <tr className="edit-entry_review">
                         <td>Review:</td>
-                        <td><textarea value={mediaEntry?.review}></textarea></td>
+                        <td><textarea name="review" value={mediaEntry?.review} onChange={handleEditEntry}></textarea></td>
                     </tr>
 
                     <tr className="edit-entry-notes">
                         <td>Notes:</td>
-                        <td><textarea></textarea></td>
+                        <td><textarea name="notes"></textarea></td>
                     </tr>
                 </tbody>
             </table>
