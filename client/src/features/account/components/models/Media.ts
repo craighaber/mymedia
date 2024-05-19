@@ -5,4 +5,5 @@ export interface Media{
     rating?: number
     review?: string
     userId?: string
+    notes?: string
 }

@@ -40,7 +40,7 @@ function Account(){
     async function saveMediaEntry(mediaEntry: Media){
         // Add the userId to the media entry
         mediaEntry.userId = user?.uid
-        await fetch(`${API_BASE_URL}/media`, {
+        await fetch(`${API_BASE_URL}/media-entry`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

@@ -18,5 +18,7 @@ INSERT INTO media (title, category_id, rating, review) VALUES ('Adventure Time',
 ALTER TABLE media ADD CONSTRAINT unique_title UNIQUE (title);
 ALTER TABLE mymedia.media CHANGE uid user_id VARCHAR(255)
 
+ALTER TABLE media ADD column notes TEXT
+
 For when I have userIds implemented:
 Use mymedia; ALTER TABLE media MODIFY COLUMN userId VARCHAR(255) NOT NULL;
