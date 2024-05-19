@@ -59,3 +59,109 @@ html, body {
 input, textarea, select {
     border: 0.1rem solid v.$primary-color;
 }
+
+.signin-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+
+
+    &_inner {
+        width: 50%;
+        background-color: v.$white-color-darker;
+        color: black;
+        border: 0.1rem solid v.$secondary-color;
+        border-radius: 1rem;
+    }
+
+    .title, .google, .or, .form, .error, .account-already {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title_text{
+        font-size: 2.5rem;
+    }
+
+    .google{
+        margin-bottom: 2rem;
+    }
+
+    .or{
+        align-items: center;
+        margin: 1.5rem auto;
+
+        &_line{
+            background-color: lightgray;
+            height: 0.1rem;
+            width: 40%;
+            max-width: 20rem;
+        }
+        &_text{
+            margin: 0 0.5rem;
+        }
+    }
+
+    .form {
+      
+        form {
+            width: 100%;
+        }
+
+        &_field {
+            margin-bottom: 3rem;
+
+            input, label, .error-text {
+                width: 80%;
+                max-width: 40rem;
+                display: block;
+                margin: 0 auto;
+               
+            }
+
+            input {
+                height: 3rem;
+            }
+
+            label {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        
+        button {
+            @include v.button(13rem, 4rem, 2rem);
+        }
+    }
+
+    .error {
+        margin: 0 1rem 2rem 1rem;
+        color: v.$error-color;
+        font-weight: bold;
+    }
+
+    .account-already{
+        margin: 2rem auto;
+
+        .link {
+            color: black;
+            margin-left: 1rem;
+        }
+    }
+}
+
+.error-text {
+    color: v.$error-color;
+}
+
+@media screen and (max-width: 768px) {
+    .signin-container {
+        &_inner {
+            width: 90%;
+        }
+    }
+}

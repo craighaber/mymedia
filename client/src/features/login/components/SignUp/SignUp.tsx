@@ -5,12 +5,12 @@ import './SignUp.scss'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import GoogleButton from 'react-google-button';
-import { AuthError, AuthErrorCodes, fetchSignInMethodsForEmail } from 'firebase/auth';
+import { AuthErrorCodes } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 
 function SignUp(){
 
-    const {user, googleLogIn, createEmailPasswordUser}: any = UserAuth();
+    const {user, googleLogin, createEmailPasswordUser}: any = UserAuth();
     const navigate = useNavigate();
     useEffect( () => {
         // Redirect to the account page when the user is logged in or comples login
@@ -53,6 +53,7 @@ function SignUp(){
 
         try {
             await createEmailPasswordUser(email, password).then(() => {
+                // Redirect to account page (sometimes the useEffect above does not trigger)
                 navigate(RoutePaths.Account)         
             })
         } catch (error) {
@@ -92,49 +93,50 @@ function SignUp(){
     }
 
     return (
-        <div className="signup">
-            <div className="signup_inner">
-            <div className="title">
-                <h4 className="title_text">Create your free account</h4> 
-            </div>
-            <div className="google">
-                <GoogleButton className="google-button" onClick={googleLogIn} label="Sign up with Google"/>
-            </div>
-            <div className="or">
-                <div className="or_line"></div>
-                <div className='or_text'>Or</div>
-                <div className="or_line"></div>
-            </div>
-            <div className="form">
-                <form>
-                    <div className="form_field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={(e) => setEmail(e?.target?.value)} className={errorEmail ? 'error-border': undefined}></input>
-                        <span className="error-text">{errorEmail}</span>
-           
-                    </div>
-                    <div className="form_field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={(e) => setPassword(e.target.value)}  className={errorPassword ? 'error-border': undefined}></input>
-                        <span className="error-text">{errorPassword}</span>
-                    </div>
+        <div className="signup signin-container">
+            <div className="signup_inner signin-container_inner">
 
-                
-                </form>
-            </div>
+                <div className="title">
+                    <h4 className="title_text">Create your free account</h4> 
+                </div>
 
-            <div className="error">
-                {error}
-            </div>
+                <div className="google">
+                    <GoogleButton className="google-button" onClick={googleLogin} label="Sign up with Google"/>
+                </div>
+
+                <div className="or">
+                    <div className="or_line"></div>
+                    <div className='or_text'>Or</div>
+                    <div className="or_line"></div>
+                </div>
+
+                <div className="form">
+                    <form>
+                        <div className="form_field">
+                            <label htmlFor="signup-email">Email</label>
+                            <input type="email" id="signup-email" onChange={(e) => setEmail(e?.target?.value)} className={errorEmail ? 'error-border': undefined}></input>
+                            <span className="error-text">{errorEmail}</span>
             
-            <div className="signup-button">
-                <button onClick={handleSignUp}>Sign Up</button>
-            </div>
+                        </div>
+                        <div className="form_field">
+                            <label htmlFor="signup-password">Password</label>
+                            <input type="password" id="signup-password" onChange={(e) => setPassword(e.target.value)}  className={errorPassword ? 'error-border': undefined}></input>
+                            <span className="error-text">{errorPassword}</span>
+                        </div>        
+                    </form>
+                </div>
 
+                <div className="error">
+                    {error}
+                </div>
+                
+                <div className="button-container">
+                    <button onClick={handleSignUp}>Sign Up</button>
+                </div>
 
-            <div className="account-already">
-                Already have an account? <Link to={RoutePaths.Login} className='link'>Login</Link>
-            </div>
+                <div className="account-already">
+                    Already have an account? <Link to={RoutePaths.Login} className='link'>Login</Link>
+                </div>
             </div>           
         </div>
     )
