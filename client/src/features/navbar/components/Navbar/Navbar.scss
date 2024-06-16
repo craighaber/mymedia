@@ -15,8 +15,18 @@ $letter-spacing: 0.3rem;
     height: v.$navbar-height;
 }
 
+.navbar_logo_wrapper {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.navbar_logo {
+    width: 6rem;
+}
+
 .navbar_title{
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding-left: $navbar-padding;
     letter-spacing: $letter-spacing;
 }

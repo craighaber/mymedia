@@ -33,7 +33,11 @@ function Navbar(){
 
     return(
         <div className="navbar">
-            <div className="navbar_title">MYMEDIA</div>
+            <div className="navbar_logo_wrapper">
+                <img src="src/assets/logo.png" alt="logo" className="navbar_logo"/>
+                <div className="navbar_title">MYMEDIA</div>
+            </div>
+          
             <ul className="navbar_links">
                 <li>{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>Logout</button>: <button className="navbar_login" onClick={handleLogin}>Login</button>}</li>
                 {!user?.uid && <li><button className="navbar_get-started" onClick={handleSignUp}>Sign Up</button></li>}
