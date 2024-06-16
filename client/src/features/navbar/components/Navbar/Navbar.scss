@@ -18,16 +18,17 @@ $letter-spacing: 0.3rem;
 .navbar_logo_wrapper {
     display: flex;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: $navbar-padding;
 }
 
 .navbar_logo {
-    width: 6rem;
+    width: 5rem;
 }
 
 .navbar_title{
-    font-size: 3.5rem;
-    padding-left: $navbar-padding;
+    font-size: 3.25rem;
+    padding-left: 0.75rem;
+    padding-top: 0.75rem;
     letter-spacing: $letter-spacing;
 }
 
