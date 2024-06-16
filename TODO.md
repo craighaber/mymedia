@@ -1,12 +1,14 @@
 ## TODO ##
-- Check if user has logged in before using local storage. If so, make get started button go to log in over sign up
-- editing of entries, save when hit back. And show error if title blank
+- Category and rating on edit page don't need to grow so wide on larger screens
 - Make landing page mobile friendly
 - Hamburger menu for navbar buttons
-
-## Low priority ##
--  edit entry not always centered vertically
-- export to csv
 - Logo
 - After logo, make landing page look like twitter's
+- Carosuel with images of different kinds of media on landing page?
+- Host the site and db baby
+
+## Low priority ##
+- Show error if title blank for edit entry
+-  edit entry not always centered vertically
+- export to csv
 - Forgot Password

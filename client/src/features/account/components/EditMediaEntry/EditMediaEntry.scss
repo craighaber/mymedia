@@ -35,12 +35,12 @@
         .edit-entry_category select {
             // Want effect of category being twice as long as rating
             // For some reason selects are a little less wide than inputs, so need to add a little extra width
-            width: calc(50% + 0.5rem);
-            min-width: 2rem;
+            width: calc(25% + 0.5rem);
+            min-width: 15.5rem;
         }
         .edit-entry_rating input {
             width: 25%;
-            min-width: 2rem;
+            min-width: 15rem;
         }
 
         .edit-entry_review, .edit-entry-notes {
@@ -58,13 +58,29 @@
             height: 30vh;
         }
 
-
+        
         td:first-child {
             width: 10rem;
         }
 
         textarea {
-            resize: vertical;
+            resize: none;
+        }
+
+        
+        // Max widths
+        .edit-entry_title input {
+            max-width: 60rem;
+        }
+        textarea {
+            max-width: 120rem;
+        }
+        .edit-entry_rating input {
+            max-width: 20rem;
+        }
+        select {
+               // For some reason selects are a little less wide than inputs, so need to add a little extra width
+            max-width: 20.5rem;
         }
     }
 
