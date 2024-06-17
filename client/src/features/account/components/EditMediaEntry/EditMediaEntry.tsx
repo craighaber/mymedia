@@ -17,7 +17,6 @@ export default function EditMediaEntry(){
     const [categories, setCategories] = useState<string[]>([])
     
     const navigate = useNavigate()
-    const location = useLocation()
 
     // Load the media entry from the database on page load
     useEffect(() => {

@@ -1,5 +1,4 @@
 ## TODO ##
-- Hamburger menu for navbar buttons
 - Carosuel with images of different kinds of media on landing page?
 - Host the site and db baby
 
