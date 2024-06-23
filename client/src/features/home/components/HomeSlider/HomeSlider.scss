@@ -1,0 +1,60 @@
+@use '../../../../variables.scss' as v;
+
+// Desktop images 50% larger than mobile
+// Animation should be 50% longer on desktop for consistency
+
+$desktop-image-height: 45rem;
+$desktop-image-width: 30rem;
+
+$mobile-image-height: 30rem;
+$mobile-image-width: 20rem;
+
+$mobile-animation-length: 70s;
+$desktop-animation-length: 105s;
+
+.home-slider {
+    position: relative;
+    
+    &_track {
+        display: flex;
+        animation: scroll $desktop-animation-length linear infinite;
+        background-color: v.$white-color-darker;
+        border-bottom: 2rem solid v.$primary-color; //Border on bottom to make page not cut of with slider
+        position: absolute; 
+        overflow: hidden; 
+        white-space: nowrap;
+        left: -2rem; // Starts on left side
+    }
+
+
+    img {
+        width: $desktop-image-width;
+        height: $desktop-image-height;
+        padding: 1.5rem 2rem;
+    }
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50%));
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .home-slider {
+
+        &_track {
+            animation: scroll $mobile-animation-length linear infinite;
+        }
+
+        img  {
+            width: $mobile-image-width;
+            height: $mobile-image-height;
+        }
+    }
+}

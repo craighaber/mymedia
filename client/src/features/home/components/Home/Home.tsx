@@ -6,6 +6,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { UserAuth } from '../../../../globals/context/AuthContext';
 import { useEffect } from 'react';
 import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage';
+import HomeSlider from '../HomeSlider/HomeSlider';
 
 export default function Home(){
     const navigate = useNavigate()
@@ -49,6 +50,8 @@ export default function Home(){
         <div className='start'>
             <button className='start_button' onClick={handleGetStarted}>GET STARTED</button>
         </div>
+
+        <HomeSlider/>
         
     </div>
     )
