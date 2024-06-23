@@ -80,6 +80,7 @@ $letter-spacing: 0.3rem;
     box-shadow: 0 0.5rem 0.5rem rgba(255, 255, 255, 0.2), 0 -0.5rem 0.5rem rgba(255, 255, 255, 0.2);
     border-top: 0.1rem solid white;
     border-bottom: 0.1rem solid white;
+    animation: slideDown 0.5s;
 
     li {
         width: 100%;
@@ -103,6 +104,15 @@ $letter-spacing: 0.3rem;
     }
 
 
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 100%;
+    }
 }
 
 
