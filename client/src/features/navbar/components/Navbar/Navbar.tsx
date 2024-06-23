@@ -66,7 +66,7 @@ function Navbar(){
 
             <ul className="navbar_links">
                 <li className="hide-on-mobile">{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>Logout</button>: <button className="navbar_login" onClick={handleLogin}>Login</button>}</li>
-                {!user?.uid && <li className="hide-on-mobile"><button className="navbar_get-started" onClick={handleSignUp}>Sign Up</button></li>}
+                {!user?.uid && <li className="hide-on-mobile"><button className="navbar_sign-up" onClick={handleSignUp}>Sign Up</button></li>}
                 { isSidebarOpen ? <FontAwesomeIcon className="navbar_icon navbar_x-icon" onClick={hideSidebar} icon={faX}/> : <FontAwesomeIcon className="navbar_icon navbar_menu-icon" onClick={showSidebar} icon={faBars}/> }
             </ul>
 
