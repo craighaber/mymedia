@@ -1,4 +1,5 @@
 ## TODO ##
+- Animation for mobile menu dropping down (should be easy)
 - Carosuel with images of different kinds of media on landing page?
 - Host the site and db baby
 
