@@ -20,7 +20,7 @@ $desktop-animation-length: 105s;
         animation: scroll $desktop-animation-length linear infinite;
         background-color: v.$white-color-darker;
         border-bottom: 2rem solid v.$primary-color; //Border on bottom to make page not cut of with slider
-        position: absolute; 
+        position: absolute; // Absolute needed to capture width of child elements in total width calculation
         overflow: hidden; 
         white-space: nowrap;
         left: -2rem; // Starts on left side
@@ -40,6 +40,9 @@ $desktop-animation-length: 105s;
         transform: translateX(0);
     }
     to {
+        // It scrolls to the left 50% of the total width of the container.
+        // Since the images in the html are double the actual desired number of images to show (each image is duplicated),
+        // moving only 50% shows all the images we need to.
         transform: translateX(calc(-50%));
     }
 }

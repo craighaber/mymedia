@@ -16,6 +16,7 @@ export default function HomeSlider(){
                 }
                     
                 )}
+                {/* Duplicate images to create a seamless loop */}
                 {images.map( (imagePath: string, index) => {
                     return (
                         <img key={'dup-' + index} src={imagePath}/>
