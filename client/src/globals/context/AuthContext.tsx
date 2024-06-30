@@ -1,5 +1,5 @@
 import { useContext, createContext, useEffect, useState } from "react"
-import { GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth"
+import { GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
 import {auth} from '../../firebase'
 
 
@@ -21,7 +21,7 @@ export const AuthContextProvider = ({children}: any) => {
     const googleLogin = async () => {
         try {
             const provider = new GoogleAuthProvider()
-            await signInWithRedirect(auth, provider)
+            await signInWithPopup(auth, provider)
         } catch (error) {
             console.log(error)
         }
