@@ -21,6 +21,9 @@ $above-table-height-mobile: 10rem;
     letter-spacing: 0.2rem;
     word-spacing: -0.1rem;
     border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @if(not $isInverse){
         border: 0.1rem solid $primary-color;
         background-color: $tertiary-color;
