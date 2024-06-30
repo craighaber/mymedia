@@ -7,9 +7,18 @@ import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RoutePaths from '../../../../globals/constants/RoutePaths';
+import { EXPORT_CSV_EVENT } from '../../../../globals/constants/events';
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
     const navigate = useNavigate()
+
+    useEffect(() => {
+        // Listen to events for exporting csv (since these can be triggered from outside the component)
+        document.addEventListener(EXPORT_CSV_EVENT, () => {exportCsv()})
+        // Cleanup event listener when component unmounted
+        return document.removeEventListener(EXPORT_CSV_EVENT, () => {exportCsv()})
+    }, [])
+
     const [colDefs, setColDefs] = useState<ColDef[]>([
         {headerName: 'Title', field: "title", colId: "title", flex: 5},
         {headerName: 'Category', field: "category", colId: "category", flex: 4,}, 
@@ -56,9 +65,12 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
         }
     }
 
+    const exportCsv = () => {
+        if (gridRef?.current?.api) gridRef.current.api.exportDataAsCsv({allColumns: true});
+    }
+
     return (
         <div className='media-table-container'>
-            {/* <button onClick={() => gridRef.current!.api.exportDataAsCsv()}>Export to CSV</button> */}
             <div className="ag-theme-quartz media-table">
                 <AgGridReact
                     ref={gridRef}

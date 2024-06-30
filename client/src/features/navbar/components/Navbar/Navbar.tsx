@@ -5,6 +5,7 @@ import RoutePaths from '../../../../globals/constants/RoutePaths'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
+import { EXPORT_CSV_EVENT } from '../../../../globals/constants/events';
 
 function Navbar(){
     const {user, logout}: any = UserAuth()
@@ -57,6 +58,11 @@ function Navbar(){
         }
     }
 
+    const handleExport = () => {
+        const exportCsvEvent = new Event(EXPORT_CSV_EVENT);
+        document.dispatchEvent(exportCsvEvent);
+    }
+
     return(
         <div className="navbar">
             <div className="navbar_logo_wrapper">
@@ -65,14 +71,16 @@ function Navbar(){
             </div>
 
             <ul className="navbar_links">
+                { user?.uid && <li className="hide-on-mobile"><button className="navbar_login" onClick={handleExport}>Export</button></li>}
                 <li className="hide-on-mobile">{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>Logout</button>: <button className="navbar_login" onClick={handleLogin}>Login</button>}</li>
                 {!user?.uid && <li className="hide-on-mobile"><button className="navbar_sign-up" onClick={handleSignUp}>Sign Up</button></li>}
                 { isSidebarOpen ? <FontAwesomeIcon className="navbar_icon navbar_x-icon" onClick={hideSidebar} icon={faX}/> : <FontAwesomeIcon className="navbar_icon navbar_menu-icon" onClick={showSidebar} icon={faBars}/> }
             </ul>
 
             <div className="sidebar" ref={sidebarRef}>
-                <li onClick={user?.uid ? handleLogout : handleLogin}>{user?.uid ? <span>Logout</span>: <span>Login</span>}</li>
-                {!user?.uid && <li onClick={handleSignUp}><span>Sign Up</span></li>}
+                { user?.uid && <li onClick={handleExport}><span>Export</span></li> }
+                <li onClick={ user?.uid ? handleLogout : handleLogin}>{user?.uid ? <span>Logout</span>: <span>Login</span> }</li>
+                { !user?.uid && <li onClick={handleSignUp}><span>Sign Up</span></li> }
             </div>
         </div>
     )
