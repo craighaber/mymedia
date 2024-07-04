@@ -4,7 +4,6 @@ import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
-import { API_BASE_URL } from '../../../../globals/constants/urls'
 
 
 export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
@@ -21,7 +20,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(()=> {
-        fetch(`${API_BASE_URL}/categories`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/categories`)
         .then((res)=> {
             return res.json();
         } )

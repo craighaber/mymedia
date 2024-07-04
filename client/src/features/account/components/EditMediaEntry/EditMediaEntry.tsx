@@ -1,7 +1,6 @@
 import { useEffect, useState} from "react";
 import './EditMediaEntry.scss'
 import { Route, useNavigate, useParams, useLocation } from "react-router-dom"
-import { API_BASE_URL } from "../../../../globals/constants/urls";
 import { Media } from "../models/Media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RoutePaths from "../../../../globals/constants/RoutePaths";
@@ -20,7 +19,7 @@ export default function EditMediaEntry(){
 
     // Load the media entry from the database on page load
     useEffect(() => {
-        fetch(`${API_BASE_URL}/media-entry/${id}`).then((res) => {
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/media-entry/${id}`).then((res) => {
             return res.json()
         }).then(
             (data) => {setMediaEntry(data)}   
@@ -46,7 +45,7 @@ export default function EditMediaEntry(){
       }, [mediaEntry])
 
       useEffect(()=> {
-        fetch(`${API_BASE_URL}/categories`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/categories`)
         .then((res)=> {
             return res.json();
         } )
@@ -72,7 +71,7 @@ export default function EditMediaEntry(){
     }
 
     const deleteMediaEntry = () => {
-        fetch(`${API_BASE_URL}/media-entry/${id}`, {method: 'DELETE'}).
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/media-entry/${id}`, {method: 'DELETE'}).
         then((res) => {
             if (res.ok){
                 navigate(RoutePaths.Account)
@@ -83,7 +82,7 @@ export default function EditMediaEntry(){
     }
 
     function updateMediaEntry() {
-        fetch(`${API_BASE_URL}/media-entry/${mediaEntry?.id}`, 
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/media-entry/${mediaEntry?.id}`, 
         {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
