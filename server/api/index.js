@@ -1,12 +1,18 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import {getMedia, getMediaEntry, deleteMediaEntry, getCategories, addMediaEntry, updateMediaEntry} from './database.js'
+import {getMedia, getMediaEntry, deleteMediaEntry, getCategories, addMediaEntry, updateMediaEntry} from '../database.js'
 
 dotenv.config()
 
 const app = express()
-app.use(cors())
+app.use(cors(
+    {
+        origin: process.env.CLIENT_URL,
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE']
+    }
+))
 app.use(express.json()) //Allows express to automatically parse JSON strings to objects in request bodies
 
 app.get('/media/:userId', async (req, res) => {
