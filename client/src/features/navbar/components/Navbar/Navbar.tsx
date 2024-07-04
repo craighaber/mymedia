@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { EXPORT_CSV_EVENT } from '../../../../globals/constants/events';
+import logoUrl from '../../../../assets/logo.png'
 
 function Navbar(){
     const {user, logout}: any = UserAuth()
@@ -66,7 +67,7 @@ function Navbar(){
     return(
         <div className="navbar">
             <div className="navbar_logo_wrapper">
-                <img src="src/assets/logo.PNG" alt="logo" className="navbar_logo"/>
+                <img src={logoUrl} alt="logo" className="navbar_logo"/>
                 <div className="navbar_title">MYMEDIA</div>
             </div>
 
