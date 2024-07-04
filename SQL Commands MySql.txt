@@ -10,15 +10,12 @@ CREATE TABLE media (
     rating DECIMAL(3,1),
     review TEXT
 )
-ALTER TABLE media ADD COLUMN userId VARCHAR(255);
+ALTER TABLE media ADD COLUMN user_id VARCHAR(255) NOT NULL;
 CREATE INDEX index_userId ON media (userId);
 
 INSERT INTO media (title, category_id, rating, review) VALUES ('Adventure Time', 8, 9.5, "Incredibly creative world and characters with literally the perfect art style. Hilarious, meaningful, and reminds you of the wonders of life."), ("The Pragmatic Programmer", 3, 8, "Great tips on becoming a better programmer. Invented the DRY principle. Interesting section about why inheritance is not needed.");
 
 ALTER TABLE media ADD CONSTRAINT unique_title UNIQUE (title);
-ALTER TABLE mymedia.media CHANGE uid user_id VARCHAR(255)
 
 ALTER TABLE media ADD column notes TEXT
 
-For when I have userIds implemented:
-Use mymedia; ALTER TABLE media MODIFY COLUMN userId VARCHAR(255) NOT NULL;

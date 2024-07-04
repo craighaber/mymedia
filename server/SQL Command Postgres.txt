@@ -1,0 +1,20 @@
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY,
+  category VARCHAR(255) NOT NULL
+);
+
+INSERT INTO categories (category) VALUES ('Album'), ('Anime'), ('Book'), ('Comic'), ('Manga'), ('Movie'), ('Song'), ('TV Show'), ('Video Game');
+
+
+CREATE TABLE media (
+	id SERIAL PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    title VARCHAR(255),
+    category_id INT,
+    FOREIGN KEY (category_id) references categories(id),
+    rating DECIMAL(3,1),
+    review TEXT,
+    notes TEXT
+);
+
+CREATE INDEX index_user_id on media(user_id);
