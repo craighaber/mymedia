@@ -66,7 +66,7 @@ function Navbar(){
     return(
         <div className="navbar">
             <div className="navbar_logo_wrapper">
-                <img src="src/assets/logo.png" alt="logo" className="navbar_logo"/>
+                <img src="src/assets/logo.PNG" alt="logo" className="navbar_logo"/>
                 <div className="navbar_title">MYMEDIA</div>
             </div>
 
