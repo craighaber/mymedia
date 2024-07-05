@@ -22,6 +22,7 @@ html, body {
 #root {
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: v.$primary-color;
     color: v.$white-color;
 }
