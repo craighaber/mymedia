@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 
-
+console.log('isprod', process.env.IS_PROD)
 const pgp = pgPromise();
 const connection = {
     host: process.env.POSTGRES_HOST,
@@ -11,7 +11,7 @@ const connection = {
     database: process.env.POSTGRES_DATABASE,
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: true,
+    ssl: process.env.IS_PROD === 'true',
     max: 30 // Max number of simaltaneous connections
 }
 
