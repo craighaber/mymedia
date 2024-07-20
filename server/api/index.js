@@ -5,6 +5,8 @@ import {getMedia, getMediaEntry, deleteMediaEntry, getCategories, addMediaEntry,
 
 dotenv.config()
 
+console.log('client url', process.env.CLIENT_URL)
+
 const app = express()
 app.use(cors(
     {
