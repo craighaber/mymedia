@@ -12,7 +12,7 @@ CREATE TABLE media (
     title VARCHAR(255),
     category_id INT,
     FOREIGN KEY (category_id) references categories(id),
-    rating DECIMAL(3,1),
+    rating DECIMAL(20,10),
     review TEXT,
     notes TEXT
 );
