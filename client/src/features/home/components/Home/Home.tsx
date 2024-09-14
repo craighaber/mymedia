@@ -35,14 +35,14 @@ export default function Home(){
     return (
     <div className="home">
         <div className='title'>
-            <h3 className='title_text'>Track your favorite media</h3>
+            <h3 className='title_text'>Journal your favorite media</h3>
         </div>
 
         <div className='subtitles'>
             <ul>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> With ratings and reviews</li>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> All in one place</li>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> For free</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> With personal ratings and reviews</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> For TV, music, books, & more</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> Completely for free</li>
             </ul>
  
         </div>
