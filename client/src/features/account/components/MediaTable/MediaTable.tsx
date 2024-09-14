@@ -20,7 +20,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     }, [])
 
     const [colDefs, setColDefs] = useState<ColDef[]>([
-        {headerName: 'Title', field: "title", colId: "title", flex: 5},
+        {headerName: 'Title', field: "title", colId: "title", flex: 6},
         {headerName: 'Category', field: "category", colId: "category", flex: 4,}, 
         {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', valueGetter: (params: any) => params.data.rating ? +params.data.rating: null},
         {hide: true, headerName: 'Review', field: "review"},
@@ -62,7 +62,8 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     const gridOptions: GridOptions = {
         onRowClicked: (event) => {
             navigate(RoutePaths.MediaEntryBase + `${event.data.id}`)
-        }
+        },
+        suppressNoRowsOverlay: true
     }
 
     const exportCsv = () => {
