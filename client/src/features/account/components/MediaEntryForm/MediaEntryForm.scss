@@ -32,9 +32,11 @@
     ". error error error ."
     "save save save save save";
 
-    &_row{
-        width: 20%;
+
+    label {
+        display: block;
     }
+
     &_area-title {
         grid-area: title;
         #title {
