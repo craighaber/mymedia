@@ -1,88 +1,105 @@
 @use '../../../../variables.scss' as v;
 
-.icons{
-    height: 2rem;
-    border-bottom: 0.2rem solid v.$primary-color;
+
+.edit {
+    height: v.$full-page-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .edit-entry {
-    margin: 2rem auto;
-    height: 85vh;
-    width: 95%;
+    height: 96%;
+    width: 96%;
     overflow-y: auto;
     border-radius: 1rem;
     background-color: v.$white-color-darker;
     color: black;
+    display: flex;
+    flex-direction: column;
 
     .icons {
         display: flex;
         justify-content: space-between;
         padding: 1rem 3rem;
+        height: 2rem;
+        border-bottom: 0.2rem solid v.$primary-color;
     }
 
-    &_table {
-        width: 100%;
-
-        padding: 0 1rem;
-
+    .fields-container  {
+        flex-grow: 1;
+        height: 100%;
         border-spacing: 0 2rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
 
-        input, textarea, select {
-            width: 95%;
-            background-color: v.$white-color;
-        }
+    .field {
+        display: flex;
+        margin-bottom: 2rem;
+    }
 
-        .edit-entry_category select {
-            // Want effect of category being twice as long as rating
-            // For some reason selects are a little less wide than inputs, so need to add a little extra width
-            width: calc(25% + 0.5rem);
-            min-width: 15.5rem;
-        }
-        .edit-entry_rating input {
-            width: 25%;
-            min-width: 15rem;
-        }
+    .field_label {
+        width: 11rem;
+        letter-spacing: 0.1rem;
+    }
 
-        .edit-entry_review, .edit-entry-notes {
-            // Make the label float to the top opf the td
-            td:first-child {
-                display: flex;
-            }
-        }
 
-        .edit-entry_review textarea {
-            height: 20vh;
-        }
+    input, textarea, select {
+        width: 95%;
+        background-color: v.$white-color;
+    }
 
-        .edit-entry-notes textarea {
-            height: 30vh;
-        }
 
-        
-        td:first-child {
-            width: 10rem;
-        }
-
-        textarea {
-            resize: none;
-        }
-
-        
-        // Max widths
-        .edit-entry_title input {
-            max-width: 60rem;
-        }
-        textarea {
-            max-width: 120rem;
-        }
-        .edit-entry_rating input {
-            max-width: 20rem;
-        }
-        select {
-               // For some reason selects are a little less wide than inputs, so need to add a little extra width
-            max-width: 20.5rem;
+    // Styling specific fields 
+    .edit-entry_title {
+        input {
+            width: 70%;
         }
     }
+
+    .edit-entry_category select {
+        // Want effect of category being twice as long as rating
+        // For some reason selects are a little less wide than inputs, so need to add a little extra width
+        width: calc(25% + 0.5rem);
+        min-width: 15.5rem;
+    }
+    .edit-entry_rating input {
+        width: 25%;
+        min-width: 15rem;
+    }
+
+    .edit-entry_review {
+        display: initial;
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    // Review area
+    .field_review-label {
+        margin-bottom: 0.5rem;
+    }
+
+    textarea {
+        resize: none;
+        height: calc(100% - 3rem);
+        width: calc(100% - 1rem);
+    }
+
+    
+    // Max widths
+    .edit-entry_title input {
+        max-width: 60rem;
+    }
+    .edit-entry_rating input {
+        max-width: 20rem;
+    }
+    select {
+        // For some reason selects are a little less wide than inputs, so need to add a little extra width
+        max-width: 20.5rem;
+    }
+
 
 
 }

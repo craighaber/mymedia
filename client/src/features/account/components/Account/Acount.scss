@@ -5,7 +5,7 @@
 }
 
 .account {
-    height: calc(100% - v.$navbar-height - 0.1rem); //Forces page height to be height of viewport
+    height: v.$full-page-height; //Forces page height to be height of viewport
     .table-title{
         display: flex;
         justify-content: center;

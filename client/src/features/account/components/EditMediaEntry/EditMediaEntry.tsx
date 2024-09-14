@@ -105,49 +105,49 @@ export default function EditMediaEntry(){
     }
         
     return (
-        <div className="edit-entry">
-            {showDecisionModal && 
-            <DecisionModal 
-                message={`Are you sure you want to delete your entry for '${mediaEntry?.title}'?`}
-                actionButtonLabel="Delete"
-                actionFunction={deleteMediaEntry}
-                closeFunction={hideDeleteDecisionModal}
-            />}
-            <div className="icons">
-                <FontAwesomeIcon className="icon" icon={faArrowLeft} onClick={() => backToAccount()}></FontAwesomeIcon>
-                <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteDecisionModal()}></FontAwesomeIcon>
-            </div>
-            <table className="edit-entry_table">
-                <tbody>
-                    <tr className="edit-entry_title">
-                        <td>Title:</td>
-                        <td><input name="title" value={mediaEntry?.title ?? ''} onChange={handleEditMediaEntry}></input></td>
-                    </tr>
-                    <tr className="edit-entry_category">
-                        <td>Category:</td>
-                        <td>
-                            <select name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}>
-                                {categories.map((category) => {
-                                    return <option key={category} value={category}>{category}</option>
-                                })}
-                            </select>
-                        </td>
-                    </tr>
-                    <tr className="edit-entry_rating">
-                        <td>Rating:</td>
-                        <td><input name="rating" type="number" value={mediaEntry?.rating ? +mediaEntry?.rating : ''} onChange={handleEditMediaEntry}></input></td>
-                    </tr>
-                    <tr className="edit-entry_review">
-                        <td>Review:</td>
-                        <td><textarea name="review" value={mediaEntry?.review ?? ''} onChange={handleEditMediaEntry}></textarea></td>
-                    </tr>
+        <div className="edit">
+            <div className="edit-entry">
+                {showDecisionModal && 
+                <DecisionModal 
+                    message={`Are you sure you want to delete your entry for '${mediaEntry?.title}'?`}
+                    actionButtonLabel="Delete"
+                    actionFunction={deleteMediaEntry}
+                    closeFunction={hideDeleteDecisionModal}
+                />}
+                <div className="icons">
+                    <FontAwesomeIcon className="icon" icon={faArrowLeft} onClick={() => backToAccount()}></FontAwesomeIcon>
+                    <FontAwesomeIcon className="icon" icon={faTrash} onClick={() => showDeleteDecisionModal()}></FontAwesomeIcon>
+                </div>
+                <div className="fields-container">
+                        <div>
+                            <div className="field edit-entry_title">
+                                <span className="field_label">Title:</span>
+                                <input name="title" value={mediaEntry?.title ?? ''} onChange={handleEditMediaEntry}></input>
+                            </div>
+                            <div className="field edit-entry_category">
+                                <span className="field_label">Category:</span>
+            
+                                <select name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}>
+                                    {categories.map((category) => {
+                                        return <option key={category} value={category}>{category}</option>
+                                    })}
+                                </select>
 
-                    <tr className="edit-entry-notes">
-                        <td>Notes:</td>
-                        <td><textarea name="notes" value={mediaEntry?.notes ?? ''} onChange={handleEditMediaEntry}></textarea></td>
-                    </tr>
-                </tbody>
-            </table>
+                            </div>
+                            <div className="field edit-entry_rating">
+                                <span className="field_label">Rating:</span>
+                                <input name="rating" type="number" value={mediaEntry?.rating ? +mediaEntry?.rating : ''} onChange={handleEditMediaEntry}></input>
+                            </div>
+                        </div>
+                        <div className="field edit-entry_review">
+                            <div className="field_review-label"> <span className="field_label">My Impressions:</span> </div>
+                            <textarea name="review" value={mediaEntry?.review ?? ''} onChange={handleEditMediaEntry}></textarea>
+                        </div>
+
+            
+                </div>
+                
+            </div>
         </div>
     )
 }
