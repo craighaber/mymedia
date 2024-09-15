@@ -41,6 +41,7 @@
     }
 
     .field_label {
+        min-width: 11rem;
         width: 11rem;
         letter-spacing: 0.1rem;
     }
@@ -84,7 +85,7 @@
     textarea {
         resize: none;
         height: calc(100% - 3rem);
-        width: calc(100% - 1rem);
+        width: calc(100% - 0.5rem);
     }
 
     
