@@ -41,8 +41,8 @@
     }
 
     .field_label {
-        min-width: 11rem;
-        width: 11rem;
+        min-width: 10rem;
+        width: 10rem;
         letter-spacing: 0.1rem;
     }
 
@@ -56,7 +56,7 @@
     // Styling specific fields 
     .edit-entry_title {
         input {
-            width: 70%;
+            width: 75%;
         }
     }
 
@@ -91,7 +91,7 @@
     
     // Max widths
     .edit-entry_title input {
-        max-width: 60rem;
+        max-width: 40rem;
     }
     .edit-entry_rating input {
         max-width: 20rem;
