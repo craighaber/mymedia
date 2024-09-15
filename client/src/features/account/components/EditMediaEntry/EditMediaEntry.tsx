@@ -103,11 +103,6 @@ export default function EditMediaEntry(){
             })
         }
     }
-
-    const handleOnFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-        console.log('focus')
-        e.target.scrollIntoView();
-    }
         
     return (
         <div className="edit">
@@ -146,7 +141,7 @@ export default function EditMediaEntry(){
                         </div>
                         <div className="field edit-entry_review">
                             <div className="field_review-label"> <span className="field_label">My Impressions:</span> </div>
-                            <textarea name="review" value={mediaEntry?.review ?? ''} onChange={handleEditMediaEntry} onFocus={handleOnFocus}></textarea>
+                            <textarea name="review" value={mediaEntry?.review ?? ''} onChange={handleEditMediaEntry}></textarea>
                         </div>
 
             
