@@ -76,7 +76,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         <div className="entry-grid_row entry-grid_area-title">
                             <label htmlFor="title">Title</label>
                             <input id="title" name="title" value={curFormData.title} className={missingTitle ? 'error-border': ''}  onChange={handleFormChange}/>
-                            { missingTitle && <span className="required-text">Please provide a title</span> }
+                            { missingTitle && <div className="required-text">Please provide a title</div> }
                         </div>
                         <div className="entry-grid_row entry-grid_area-category">
                             <label htmlFor="category">Category</label>
@@ -86,13 +86,17 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                                     return <option key={category} value={category}>{category}</option>
                                 })}
                             </select>
-                            {missingCategory && <span className="required-text">Please provide a category</span>}
+                            {missingCategory && <div className="required-text">Please provide a category</div>}
                         </div>
                         <div className='entry-grid_row entry-grid_area-rating'>
                             <label htmlFor="rating">Personal Rating</label>
                             <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : '' } onChange={handleFormChange}></input>
                         </div>
-                        <textarea className= "entry-grid_area-review" placeholder='Your impressions on the work. This could be anything from a review to key points you would like to remember...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                        <div  className= "entry-grid_area-review">
+                            <label htmlFor="review">My Impressions</label>
+                            <textarea id="review" placeholder='Your impressions on the work. This could be anything from a review to key points you would like to remember...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                        </div>
+                       
                         <div className="entry-grid_row entry-grid_area-error">
                             {errorMessage}
                         </div>
