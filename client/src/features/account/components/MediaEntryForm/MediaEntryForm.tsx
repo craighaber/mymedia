@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './MediaEntryForm.scss'
 import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faX, faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
 
 
@@ -89,11 +89,15 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                             {missingCategory && <div className="required-text">Please provide a category</div>}
                         </div>
                         <div className='entry-grid_row entry-grid_area-rating'>
-                            <label htmlFor="rating">Personal Rating</label>
-                            <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : '' } onChange={handleFormChange}></input>
+                            <div className="entry-grid_label-with-icon">
+                                <label htmlFor="rating">Personal Rating</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo}/>
+                            </div>
+                            <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : '' } onChange={handleFormChange}></input>        
                         </div>
                         <div  className= "entry-grid_area-review">
-                            <label htmlFor="review">My Impressions</label>
+                            <div className="entry-grid_label-with-icon"> 
+                                <label htmlFor="review">My Impressions</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo}/>
+                            </div>
                             <textarea id="review" placeholder='Your impressions on the work. This could be anything from a review to key points you would like to remember...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
                         </div>
                        

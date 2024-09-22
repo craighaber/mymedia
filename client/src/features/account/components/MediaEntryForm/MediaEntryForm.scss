@@ -36,6 +36,12 @@
 
     label {
         display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    &_label-with-icon {
+        display: flex;
+        gap: 1rem;
     }
 
     &_area-title {
@@ -90,6 +96,9 @@
 
 }
 
+.info {
+    font-size: 2rem;
+}
 
 @media screen and (max-width: 768px) {
 
