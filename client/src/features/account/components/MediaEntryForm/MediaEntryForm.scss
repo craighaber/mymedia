@@ -58,6 +58,7 @@
     }
     &_area-review {
         grid-area: review;
+        width: 100%;
         #review {
             width: 100%;
             height: calc(100% - 2rem);
@@ -92,8 +93,18 @@
 
 @media screen and (max-width: 768px) {
 
+    .entry-form {
+        height: 95%;
+    }
+    .entry-modal{
+        height: 85%;
+        top: 48%; // For some reason on mobile it looks a little off unless the modal is raised a bit
+    }
+
     .entry-grid {
         display: grid;
+        gap: 2rem 0;
+        height: 100%;
         grid-template-areas: 
         "title"
         "category"
@@ -106,9 +117,7 @@
     .entry-grid_area-error {
         margin-bottom: 2rem;
     }
-    .entry-grid_area-review {
-        max-width: 90%;
-    }
+
 }
 
 .required-text {
