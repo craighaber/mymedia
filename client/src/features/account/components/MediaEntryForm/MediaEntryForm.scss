@@ -1,5 +1,7 @@
 @use '../../../../variables.scss' as v;
 
+$popup-border: 0.1rem solid v.$primary-color;
+
 .entry-modal{
 
     position: fixed;
@@ -100,7 +102,37 @@
     font-size: 2rem;
 }
 
-@media screen and (max-width: 768px) {
+// Styling to add an arrow pointing up to the above the info content
+.info-content-container {
+    position: relative;
+    margin-top: 1rem;
+    &::before {
+        border-top: $popup-border;
+        border-left: $popup-border;
+        background-color: v.$white-color;
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        top: -0.6rem;
+        transform: rotate(45deg);
+        left: calc(50% - 0.5rem);
+      
+    }
+}
+
+// Styling for the info content itself (the text dialog that appears when the info icon is clicked)
+.info-content {
+    background-color: v.$white-color;
+    border-radius: 0.5rem;
+    border: $popup-border;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    width: 25rem;
+}
+
+@media screen and (max-width: 1000px) { // 1000px is about when the form gets too scrunched with the desktop view
 
     .entry-form {
         height: 95%;

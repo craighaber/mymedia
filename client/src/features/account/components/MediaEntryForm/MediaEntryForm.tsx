@@ -4,6 +4,7 @@ import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX, faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
+import { Box, ClickAwayListener, createStyles, Popper, Theme } from '@mui/material'
 
 
 export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
@@ -18,6 +19,8 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
     const [missingTitle, setMissingTitle]  = useState(false);
     const [missingCategory, setMissingCategory] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [ratingInfoAnchorEl, setRatingInfoAnchorEl] = useState<null | HTMLElement>(null)
+    const [reviewInfoAnchorEl, setReviewInfoAnchorEl] = useState<null | HTMLElement>(null)
 
     useEffect(()=> {
         fetch(`${import.meta.env.VITE_API_BASE_URL}/categories`)
@@ -65,7 +68,13 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
         
     }
 
+    function ratingInfoClicked(event: any){
+        setRatingInfoAnchorEl( ratingInfoAnchorEl ? null : event?.currentTarget)
+    } 
 
+    function reviewInfoClicked(event: any){
+        setReviewInfoAnchorEl( reviewInfoAnchorEl ? null : event?.currentTarget)
+    }
 
     return (
         <div className="modal-backdrop">
@@ -90,15 +99,29 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         </div>
                         <div className='entry-grid_row entry-grid_area-rating'>
                             <div className="entry-grid_label-with-icon">
-                                <label htmlFor="rating">Personal Rating</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo}/>
+                                <label htmlFor="rating">Personal Rating</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo} onClick={ratingInfoClicked}/>
+                                <Popper open={!!ratingInfoAnchorEl }  anchorEl={ratingInfoAnchorEl}  disablePortal={true} >
+                                    <ClickAwayListener onClickAway={ratingInfoClicked}>
+                                        <Box className="info-content-container" >
+                                                <div className="info-content">An optional personal rating of how you perceive this media expressed as any number, such as a score out of 10.  </div>
+                                        </Box>
+                                    </ClickAwayListener>
+                                </Popper>
                             </div>
                             <input type="number" id="rating" name="rating" value={curFormData.rating ? +curFormData.rating : '' } onChange={handleFormChange}></input>        
                         </div>
                         <div  className= "entry-grid_area-review">
                             <div className="entry-grid_label-with-icon"> 
-                                <label htmlFor="review">My Impressions</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo}/>
+                                <label htmlFor="review">My Impressions</label> <FontAwesomeIcon className="info icon" icon={faCircleInfo} onClick={reviewInfoClicked}/>
+                                <Popper open={!!reviewInfoAnchorEl }  anchorEl={reviewInfoAnchorEl}  disablePortal={true} >
+                                    <ClickAwayListener onClickAway={reviewInfoClicked}>
+                                        <Box className="info-content-container" >
+                                                <div className="info-content">This space is for you to reflect on your thoughts and impressions of this media! You can choose to write review, list bullet points about your favorite parts, or write notes about what you learned. It's your personal journal entry, so make it yours! </div>
+                                        </Box>
+                                    </ClickAwayListener>
+                                </Popper>
                             </div>
-                            <textarea id="review" placeholder='Your impressions on the work. This could be anything from a review to key points you would like to remember...' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                            <textarea id="review" placeholder='Write your journal entry here!' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
                         </div>
                        
                         <div className="entry-grid_row entry-grid_area-error">
