@@ -5,10 +5,10 @@ export default function About(){
         <div className="about">
             <div className = "about_container">
 
-                <div className="title">
-                    <h3 className="title_text">About MyMedia</h3>
+                <div className="about-title">
+                    <h3 className="about-title_text">About MyMedia</h3>
                 </div>
-                <div className="content">
+                <div className="about-content">
                     <p>
                         Have you ever watched an incredible movie, read an inspiring book, or listened to an album that deeply moved you?
                         But then years later you try to recall the work in conversation, and you simply can't remember the first detail about it? We've all been there—and that's exactly why MyMedia was created!
@@ -21,10 +21,10 @@ export default function About(){
                     <p>My name is Craig, and I started this site as a passion project to help myself and others reflect on the media that shapes our lives. This platform has plenty of room for growth, and I'm eager to hear your thoughts. Please reach out with any and all feedback or questions by contacting me at by via <a href="mailto:craighaber1@gmail.com">email</a> or  by connecting through <a href="https://www.linkedin.com/in/craighaber/">LinkedIn</a>.</p>
                 </div>
 
-                <div className="title">
-                 <h3 className="title_text">FAQs</h3>
+                <div className="about-title">
+                 <h3 className="about-title_text">FAQs</h3>
                 </div>
-                <div className="content">
+                <div className="about-content">
                     <p className='question'>Can other people see my journal entries?</p>
                     <p>Not right now! MyMedia is designed to be a personal space for you. While sharing on social media is prevalent, we believe it can detract from the authenticity of your experiences. If there’s enough demand, we might consider a sharing option in the future.</p>
                     <p className='question'>How can I trust this website to permanently save my journal entries?</p>
@@ -33,10 +33,12 @@ export default function About(){
                     <p>Yes! Whether you're a movie buff, a book lover, or a gaming aficionado, you can track as many or as few media categories as you like.</p>
                     <p className='question'>What if I only want to log what I've seen? </p>
                     <p>No problem! You can easily list all your completed media in one organized view, with the added ability to filter on title, category, and ranking. When creating a media entry, simply leave the 'My Impressions' box blank to keep things simple.</p>
-                
-                <div className="title">
-                    <h3 className="title_text">Need an example?</h3>    
                 </div>
+
+                <div className="about-title">
+                    <h3 className="about-title_text">Need an example?</h3>    
+                </div>
+                <div className="about-content">
                     <p>Here is an example of what a media entry might look like:</p>
                     <div className='example-section'><b>Title:</b><i> This is What it Sounds Like</i></div>
                     <div className='example-section'><b>Category:</b> Book</div>
@@ -49,10 +51,10 @@ export default function About(){
                     </div>
                 </div>
 
-                <div className="title">
-                    <h3 className="title_text">Join Us</h3>    
+                <div className="about-title">
+                    <h3 className="about-title_text">Join Us</h3>    
                 </div>
-                <div className="content">
+                <div className="about-content">
                     <p>Take the first step in preserving your memories with media, and start using MyMedia today!</p>
                 </div>
             </div>
