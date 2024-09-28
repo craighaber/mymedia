@@ -1,0 +1,48 @@
+@use '../../../../variables.scss' as v;
+
+.about {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_container {
+        width: 96%;
+        height: 96%;
+        color: black;
+        background-color: v.$white-color-darker;
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: v.$primary-color;
+   
+    &_text {
+        font-size: 3.5rem;
+        margin: 0;
+        text-align: center;
+    }
+
+}
+
+p {
+    line-height: 1.5;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.example-section {
+    margin-bottom: 1rem;
+}
+
+.impressions-container {
+    line-height: 1.5;
+}
+

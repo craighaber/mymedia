@@ -9,6 +9,7 @@ import  RoutePaths from './globals/constants/RoutePaths'
 import Protected from './features/navbar/components/Protected/Protected'
 import EditMediaEntry from './features/account/components/EditMediaEntry/EditMediaEntry'
 import SignUp from './features/login/components/SignUp/SignUp'
+import About from './features/about/components/About/About'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path={RoutePaths.Home} element={<Home/>} />
+          <Route path={RoutePaths.About} element={<About/>} />
           <Route path={RoutePaths.Login} element={<Login/>} />
           <Route path={RoutePaths.SignUp} element={<SignUp/>} />
           <Route path={RoutePaths.Account} element={<Protected><Account/></Protected>} />

@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 
-console.log('isprod', process.env.IS_PROD)
 const pgp = pgPromise();
 const connection = {
     host: process.env.POSTGRES_HOST,

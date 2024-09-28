@@ -32,6 +32,14 @@ export default function Home(){
         }
     }
 
+    const handleLearnMore = () => {
+        try {
+            navigate(RoutePaths.About)
+        } catch (error){
+            console.log(error)
+        }
+    }
+
     return (
     <div className="home">
         <div className='title'>
@@ -40,14 +48,16 @@ export default function Home(){
 
         <div className='subtitles'>
             <ul>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> With personal ratings and reviews</li>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> For TV, music, books, & more</li>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> Completely for free</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> Rate and review what you love</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> Track TV, music, books, & more</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> Completely free to use</li>
             </ul>
  
         </div>
         
         <div className='start'>
+
+            <button className="learn_more_button" onClick={handleLearnMore}>LEARN MORE</button>
             <button className='start_button' onClick={handleGetStarted}>GET STARTED</button>
         </div>
 
