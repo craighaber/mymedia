@@ -7,9 +7,12 @@ import { UserAuth } from '../../../../globals/context/AuthContext';
 import { useEffect } from 'react';
 import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage';
 import HomeSlider from '../HomeSlider/HomeSlider';
+import useNavigateLoginOrSignUp from '../../../../globals/hooks/useNavigateLoginOrSignUp';
+
 
 export default function Home(){
     const navigate = useNavigate()
+    const navigateLoginOrSignUp = useNavigateLoginOrSignUp()
     const { user }: any = UserAuth()
 
     useEffect(() => {
@@ -17,20 +20,6 @@ export default function Home(){
             navigate(RoutePaths.Account)
         }
     }, [user])
-
-    const handleGetStarted = () => {
-        // Navigate to Sign up only if the user has not logged in on the browser or device before
-        let path = RoutePaths.SignUp
-        const userHasLoggedInBefore: string | null = localStorage.getItem(USER_HAS_LOGGED_IN_BEFORE)
-        if (userHasLoggedInBefore && JSON.parse(userHasLoggedInBefore) === true){
-            path = RoutePaths.Login
-        }
-        try{
-            navigate(path)
-        } catch (error){
-            console.log(error)
-        }
-    }
 
     const handleLearnMore = () => {
         try {
@@ -55,10 +44,10 @@ export default function Home(){
  
         </div>
         
-        <div className='start'>
+        <div className='buttons'>
 
-            <button className="learn_more_button" onClick={handleLearnMore}>LEARN MORE</button>
-            <button className='start_button' onClick={handleGetStarted}>GET STARTED</button>
+            <button className="buttons_learn-more" onClick={handleLearnMore}>LEARN MORE</button>
+            <button className='buttons_get-started' onClick={navigateLoginOrSignUp}>GET STARTED</button>
         </div>
 
         <HomeSlider/>

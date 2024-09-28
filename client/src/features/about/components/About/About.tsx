@@ -1,6 +1,10 @@
 import './About.scss';
+import useNavigateLoginOrSignUp from '../../../../globals/hooks/useNavigateLoginOrSignUp';
+
 
 export default function About(){
+    const navigateLoginOrSignUp = useNavigateLoginOrSignUp()
+
     return (
         <div className="about">
             <div className = "about_container">
@@ -52,14 +56,19 @@ export default function About(){
                 </div>
 
                 <div className="about-title">
-                    <h3 className="about-title_text">Join Us</h3>    
+                    <h3 className="about-title_text">Join Us Today</h3>    
                 </div>
                 <div className="about-content">
-                    <p>Take the first step in preserving your memories with media, and start using MyMedia today!</p>
+                    {/* <p>Take the first step in preserving your memories with media, and start using MyMedia today!</p> */}
+                    <div className="get-started">
+                        <button className='get-started_button' onClick={navigateLoginOrSignUp}>GET STARTED</button>
+                    </div>
+                 
                 </div>
+              
             </div>
 
- 
+        
           
         </div>
     )
