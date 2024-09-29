@@ -66,9 +66,17 @@
         width: calc(25% + 0.5rem);
         min-width: 15.5rem;
     }
+    .edit-entry_rating {
+        margin-bottom: 0; // Remove margin from rating for extra space
+    }
     .edit-entry_rating input {
         width: 25%;
         min-width: 15rem;
+    }
+
+    .star-rating {
+        position: relative;
+        bottom: 0.75rem;
     }
 
     .edit-entry_review {

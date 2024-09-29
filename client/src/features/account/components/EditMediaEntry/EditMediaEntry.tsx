@@ -7,6 +7,7 @@ import RoutePaths from "../../../../globals/constants/RoutePaths";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 import DecisionModal from "../../../global/modal/DecisionModal";
 import { update } from "firebase/database";
+import { Rating } from "@mui/material";
 
 export default function EditMediaEntry(){
 
@@ -93,7 +94,7 @@ export default function EditMediaEntry(){
     }
 
   
-    const handleEditMediaEntry = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleEditMediaEntry = (e: any) => {
         const {name, value} = e.target
         if (mediaEntry){
             // Update the media entry with the changed field
@@ -136,7 +137,8 @@ export default function EditMediaEntry(){
                             </div>
                             <div className="field edit-entry_rating">
                                 <span className="field_label">Rating:</span>
-                                <input name="rating" type="number" value={mediaEntry?.rating ? +mediaEntry?.rating : ''} onChange={handleEditMediaEntry}></input>
+                                {/* <input name="rating" type="number" value={mediaEntry?.rating ? +mediaEntry?.rating : ''} onChange={handleEditMediaEntry}></input> */}
+                                <Rating name="rating" className="star-rating star-rating--editable" precision={0.25} size="large" value={mediaEntry?.rating ?? 0 }  onChange={handleEditMediaEntry} />       
                             </div>
                         </div>
                         <div className="field edit-entry_review">

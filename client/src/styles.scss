@@ -27,9 +27,29 @@ html, body {
     color: v.$white-color;
 }
 
+.choose-category {
+    background-color: white;
+}
+
+.star-rating {
+    & .MuiRating-icon{
+        font-size: 3.2rem;
+    }
+}
+
+.star-rating--editable {
+   position: relative;
+   right: 0.25rem;
+}
+
 .error-border {
     border: 0.1rem solid red;
 }
+
+.error-text {
+    color: v.$error-color;
+}
+
 
 .icon {
     font-size: 2.2rem;
@@ -157,13 +177,6 @@ input, textarea, select {
     }
 }
 
-.error-text {
-    color: v.$error-color;
-}
-
-.choose-category {
-    background-color: white;
-}
 
 @media screen and (max-width: 768px) {
     .signin-container {

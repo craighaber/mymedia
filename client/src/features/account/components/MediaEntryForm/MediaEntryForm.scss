@@ -60,9 +60,6 @@ $popup-border: 0.1rem solid v.$primary-color;
     }
     &_area-rating {
         grid-area: rating;
-        #rating {
-            width: 8rem;
-        }
     }
     &_area-review {
         grid-area: review;
@@ -100,6 +97,10 @@ $popup-border: 0.1rem solid v.$primary-color;
 
 .info {
     font-size: 2rem;
+}
+
+.info-popper {
+    z-index: 1;
 }
 
 // Styling to add an arrow pointing up to the above the info content
@@ -144,7 +145,7 @@ $popup-border: 0.1rem solid v.$primary-color;
 
     .entry-grid {
         display: grid;
-        gap: 2rem 0;
+        gap: 1rem 0;
         height: 100%;
         grid-template-areas: 
         "title"
@@ -155,6 +156,12 @@ $popup-border: 0.1rem solid v.$primary-color;
         "save";
         grid-template-rows: auto auto auto 1fr auto auto;
     }
+
+     // A little extra veritcal space for title and cateogry since they can have error text
+    .entry-grid_area-title, .entry-grid_area-category {
+        margin-bottom: 1rem;
+    }
+
     .entry-grid_area-error {
         margin-bottom: 2rem;
     }
