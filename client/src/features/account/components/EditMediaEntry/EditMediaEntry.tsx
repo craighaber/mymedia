@@ -127,7 +127,7 @@ export default function EditMediaEntry(){
                             <div className="field edit-entry_category">
                                 <span className="field_label">Category:</span>
             
-                                <select name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}>
+                                <select className="choose-category" name="category" value={mediaEntry?.category ?? ''} onChange={handleEditMediaEntry}>
                                     {categories.map((category) => {
                                         return <option key={category} value={category}>{category}</option>
                                     })}

@@ -37,8 +37,8 @@ export default function Home(){
 
         <div className='subtitles'>
             <ul>
-                <li><FontAwesomeIcon icon={faCheck} className='check'/> Rate and review what you love</li>
                 <li><FontAwesomeIcon icon={faCheck} className='check'/> Track TV, music, books, & more</li>
+                <li><FontAwesomeIcon icon={faCheck} className='check'/> Rate and review what you love</li>
                 <li><FontAwesomeIcon icon={faCheck} className='check'/> Completely free to use</li>
             </ul>
  

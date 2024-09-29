@@ -89,7 +89,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                         </div>
                         <div className="entry-grid_row entry-grid_area-category">
                             <label htmlFor="category">Category</label>
-                            <select id="category" name="category" value={curFormData.category} className= {missingCategory ? 'error-border': ''}  onChange={handleFormChange}>
+                            <select id="category" name="category" value={curFormData.category} className= {`${missingCategory ? 'error-border': ''} choose-category`}  onChange={handleFormChange}>
                                 <option disabled value="">Choose a category</option>
                                 {categories.map(category => {
                                     return <option key={category} value={category}>{category}</option>
@@ -116,7 +116,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                                 <Popper open={!!reviewInfoAnchorEl }  anchorEl={reviewInfoAnchorEl}  disablePortal={true} >
                                     <ClickAwayListener onClickAway={reviewInfoClicked}>
                                         <Box className="info-content-container" >
-                                                <div className="info-content">This space is for you to reflect on your thoughts and impressions of this media! You can choose to write review, list bullet points about your favorite parts, or write notes about what you learned. It's your personal journal entry, so make it yours! </div>
+                                                <div className="info-content">This space is for you to reflect on your thoughts and impressions of this media! You can choose to write a review, list bullet points about your favorite parts, or write notes about what you learned. It's your personal journal entry, so make it yours! </div>
                                         </Box>
                                     </ClickAwayListener>
                                 </Popper>

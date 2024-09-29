@@ -24,7 +24,7 @@
         justify-content: center;
         height: 50%;
         &_button{
-            @include v.button(21rem, 3.5rem, 2.5rem);
+            @include v.button(21rem, 3.8rem, 2.5rem);
         }
 
     }
