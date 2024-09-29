@@ -8,6 +8,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RoutePaths from '../../../../globals/constants/RoutePaths';
 import { EXPORT_CSV_EVENT } from '../../../../globals/constants/events';
+import MediaTableRatingRenderer from '../MediaTableRatingRenderer/MediaTableRatingRenderer';
 
 function MediaTable({mediaList}: {mediaList: Media[]}){
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     const [colDefs, setColDefs] = useState<ColDef[]>([
         {headerName: 'Title', field: "title", colId: "title", flex: 5},
         {headerName: 'Category', field: "category", colId: "category", flex: 4,}, 
-        {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', valueGetter: (params: any) => params.data.rating ? +params.data.rating: null},
+        {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', cellRenderer: MediaTableRatingRenderer},
         {hide: true, headerName: 'Review', field: "review"},
         {hide: true, headerName: 'Notes', field: "notes"}
     ])

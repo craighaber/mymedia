@@ -42,6 +42,14 @@ html, body {
    right: 0.25rem;
 }
 
+.star-rating--readonly {
+    & .MuiRating-icon{
+        font-size: auto;
+    }
+    position: relative;
+    top: 1rem;
+}
+
 .error-border {
     border: 0.1rem solid red;
 }
