@@ -23,7 +23,14 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
     const [colDefs, setColDefs] = useState<ColDef[]>([
         {headerName: 'Title', field: "title", colId: "title", flex: 5},
         {headerName: 'Category', field: "category", colId: "category", flex: 4,}, 
-        {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', cellRenderer: MediaTableRatingRenderer},
+        {headerName: 'Rating', field: "rating", colId: "rating", flex: 3, filter: 'agNumberColumnFilter', cellRenderer: MediaTableRatingRenderer,
+            valueGetter: (params) => {
+                let rating = params?.data?.rating;
+                // Making rating backwards compatible with 10-scale
+                if (rating && rating > 5) rating = rating / 2;
+                return rating;
+            }
+        },
         {hide: true, headerName: 'Review', field: "review"},
         {hide: true, headerName: 'Notes', field: "notes"}
     ])
