@@ -20,6 +20,18 @@ function Navbar(){
         hideSidebar()
     }, [location]) 
 
+    const handleHome = () => {
+        try {
+            if(user){
+                navigate(RoutePaths.Account)
+            } else {
+                navigate(RoutePaths.Home)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const handleLogout = async () => {
         try {
            await logout()
@@ -39,6 +51,14 @@ function Navbar(){
     const handleSignUp = () => {
         try {
             navigate(RoutePaths.SignUp)
+        } catch (error){
+            console.log(error)
+        }
+    }
+
+    const handleAbout = () => {
+        try {
+            navigate(RoutePaths.About)
         } catch (error){
             console.log(error)
         }
@@ -66,20 +86,22 @@ function Navbar(){
 
     return(
         <div className="navbar">
-            <div className="navbar_logo_wrapper">
+            <div className="navbar_logo_wrapper" onClick={handleHome}>
                 <img src={logoUrl} alt="logo" className="navbar_logo"/>
                 <div className="navbar_title">MYMEDIA</div>
             </div>
 
             <ul className="navbar_links">
-                { user?.uid && <li className="hide-on-mobile"><button className="navbar_login" onClick={handleExport}>Export</button></li>}
+                { user?.uid && location?.pathname === RoutePaths.Account && <li className="hide-on-mobile"><button className="navbar_login" onClick={handleExport}>Export</button></li>}
+                <li className="hide-on-mobile"><button className="navbar_about" onClick={handleAbout}>About</button></li>
                 <li className="hide-on-mobile">{user?.uid ? <button className="navbar_logout" onClick={handleLogout}>Logout</button>: <button className="navbar_login" onClick={handleLogin}>Login</button>}</li>
                 {!user?.uid && <li className="hide-on-mobile"><button className="navbar_sign-up" onClick={handleSignUp}>Sign Up</button></li>}
                 { isSidebarOpen ? <FontAwesomeIcon className="navbar_icon navbar_x-icon" onClick={hideSidebar} icon={faX}/> : <FontAwesomeIcon className="navbar_icon navbar_menu-icon" onClick={showSidebar} icon={faBars}/> }
             </ul>
 
             <div className="sidebar" ref={sidebarRef}>
-                { user?.uid && <li onClick={handleExport}><span>Export</span></li> }
+                { user?.uid && location?.pathname === RoutePaths.Account && <li onClick={handleExport}><span>Export</span></li> }
+                <li onClick={handleAbout}><span>About</span></li>
                 <li onClick={ user?.uid ? handleLogout : handleLogin}>{user?.uid ? <span>Logout</span>: <span>Login</span> }</li>
                 { !user?.uid && <li onClick={handleSignUp}><span>Sign Up</span></li> }
             </div>
