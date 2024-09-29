@@ -6,9 +6,13 @@ export default function MediaTableRatingRenderer(params: any){
 
     const ratingSize = isSmallScreen ? 'medium' : 'large'; 
 
+    let rating = params?.data?.rating;
+    if (rating && rating > 10) rating = rating / 2;
+    // Making rating backwards compatible with 10-scale
+
     return (
         <div className="rating-container">
-            {params?.data?.rating && <Rating name="rating" className="star-rating--readonly" precision={0.25} size={ratingSize} value={params?.data?.rating} readOnly /> }  
+            {rating && <Rating name="rating" className="star-rating--readonly" precision={0.25} size={ratingSize} value={rating} readOnly /> }  
         </div>
            
     )
