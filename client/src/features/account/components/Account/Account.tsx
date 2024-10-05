@@ -5,6 +5,7 @@ import MediaEntryForm from '../MediaEntryForm/MediaEntryForm';
 import MediaTable from '../MediaTable/MediaTable';
 import { Media } from '../models/Media';
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings';
+import { Snackbar } from '@mui/material';
 
 function Account(){
 
@@ -12,6 +13,7 @@ function Account(){
 
     const [showMediaEntryForm, setshowMediaEntryForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
+    const [showSnackbar, setShowSnackbar] = useState(false)
 
     useEffect(() => {
         fetchMediaData()
@@ -36,6 +38,10 @@ function Account(){
             }
     }
 
+    function handleSnackbarClose(){
+        setShowSnackbar(false);
+    }
+
     async function saveMediaEntry(mediaEntry: Media){
         // Add the userId to the media entry
         mediaEntry.userId = user?.uid
@@ -47,7 +53,8 @@ function Account(){
             body: JSON.stringify(mediaEntry)
         }).then(res => {
             if (res.ok) {
-                hideMediaEntryForm()           
+                hideMediaEntryForm()    
+                setShowSnackbar(true)       
             } else {
                 throw Error(GENERIC_ERROR_MESSAGE)
             }
@@ -71,6 +78,8 @@ function Account(){
         {showMediaEntryForm ? <MediaEntryForm saveMediaEntry={saveMediaEntry} hideMediaEntryForm={hideMediaEntryForm}/> : null}
 
         <MediaTable mediaList={mediaList}/>
+
+        <Snackbar className="snackbar" open={showSnackbar} autoHideDuration={3000} message="Saved Media Entry Successfully!" anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} onClose={handleSnackbarClose}/>
     </div>
     )
 }

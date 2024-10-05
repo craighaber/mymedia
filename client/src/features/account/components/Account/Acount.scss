@@ -32,6 +32,10 @@
 
 }
 
+.snackbar .MuiSnackbarContent-message {
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width: 768px){
     .above-table-container {
         height: v.$above-table-height-mobile;
@@ -49,6 +53,10 @@
                 @include v.button(17rem, 3rem, 2rem);
             }
         }
+    }
+
+    .snackbar .MuiSnackbarContent-message {
+        font-size: unset;
     }
 }
 

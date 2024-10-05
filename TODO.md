@@ -1,2 +1,0 @@
-## Low priority ##
-- Forgot Password
