@@ -8,6 +8,7 @@ import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 import DecisionModal from "../../../global/modal/DecisionModal";
 import { update } from "firebase/database";
 import { Rating } from "@mui/material";
+import { SHOW_SNACKBAR_EVENT, ShowSnackBarEvent } from "../../../../globals/constants/events";
 
 export default function EditMediaEntry(){
 
@@ -76,6 +77,10 @@ export default function EditMediaEntry(){
         then((res) => {
             if (res.ok){
                 navigate(RoutePaths.Account)
+                // Show the Snackbar on the Account page
+                const showSnackbarEvent = new CustomEvent(SHOW_SNACKBAR_EVENT, { detail: {message: 'Deleted Media Entry'}} )
+                // setTimeout needed to delay dispatching of the event until the next event loop cycle
+                setTimeout( () => {document.dispatchEvent(showSnackbarEvent)}, 0)
             } else {
                 console.log('Failed to delete media entry')
             }

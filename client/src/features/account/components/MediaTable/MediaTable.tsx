@@ -15,9 +15,9 @@ function MediaTable({mediaList}: {mediaList: Media[]}){
 
     useEffect(() => {
         // Listen to events for exporting csv (since these can be triggered from outside the component)
-        document.addEventListener(EXPORT_CSV_EVENT, () => {exportCsv()})
+        document.addEventListener(EXPORT_CSV_EVENT, exportCsv)
         // Cleanup event listener when component unmounted
-        return document.removeEventListener(EXPORT_CSV_EVENT, () => {exportCsv()})
+        return () => { document.removeEventListener(EXPORT_CSV_EVENT, exportCsv) }
     }, [])
 
     const [colDefs, setColDefs] = useState<ColDef[]>([

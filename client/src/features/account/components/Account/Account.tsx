@@ -6,6 +6,7 @@ import MediaTable from '../MediaTable/MediaTable';
 import { Media } from '../models/Media';
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings';
 import { Snackbar } from '@mui/material';
+import { SHOW_SNACKBAR_EVENT, ShowSnackBarEvent } from '../../../../globals/constants/events';
 
 function Account(){
 
@@ -14,10 +15,16 @@ function Account(){
     const [showMediaEntryForm, setshowMediaEntryForm] = useState(false)
     const [mediaList, setMediaList] = useState<Media[]>([])
     const [showSnackbar, setShowSnackbar] = useState(false)
+    const [snackBarMessage, setSnackbarMessage] = useState('');
 
     useEffect(() => {
         fetchMediaData()
     }, [user])
+
+    useEffect(() => {
+        document.addEventListener(SHOW_SNACKBAR_EVENT, showSnackbarWithMessage)
+        return () => {document.removeEventListener(SHOW_SNACKBAR_EVENT, showSnackbarWithMessage)}
+    })
 
     function displayForm(){
         setshowMediaEntryForm(true)
@@ -38,6 +45,12 @@ function Account(){
             }
     }
 
+    const showSnackbarWithMessage = (event: Event) => {
+        const showSnackBarEvent = event as ShowSnackBarEvent;
+        setSnackbarMessage(showSnackBarEvent?.detail?.message)
+        setShowSnackbar(true)
+    }
+
     function handleSnackbarClose(){
         setShowSnackbar(false);
     }
@@ -53,8 +66,9 @@ function Account(){
             body: JSON.stringify(mediaEntry)
         }).then(res => {
             if (res.ok) {
-                hideMediaEntryForm()    
-                setShowSnackbar(true)       
+                hideMediaEntryForm() 
+                const showSnackbarEvent = new CustomEvent(SHOW_SNACKBAR_EVENT, { detail: {message: 'Saved Media Entry successfully!'}} )
+                document.dispatchEvent(showSnackbarEvent)    
             } else {
                 throw Error(GENERIC_ERROR_MESSAGE)
             }
@@ -79,7 +93,7 @@ function Account(){
 
         <MediaTable mediaList={mediaList}/>
 
-        <Snackbar className="snackbar" open={showSnackbar} autoHideDuration={3000} message="Saved Media Entry Successfully!" anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} onClose={handleSnackbarClose}/>
+        <Snackbar className="snackbar" open={showSnackbar} autoHideDuration={3000} message={snackBarMessage} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} onClose={handleSnackbarClose}/>
     </div>
     )
 }
