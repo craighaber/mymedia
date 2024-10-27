@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './MediaEntryForm.scss'
 import { Media } from '../models/Media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX, faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import { GENERIC_ERROR_MESSAGE } from '../../../../globals/constants/strings'
 import { Box, ClickAwayListener, Popper, Rating } from '@mui/material'
+import FormattingToolbar from '../Tiptap/Tiptap'
+import Tiptap from '../Tiptap/Tiptap'
+import { EditorContent } from '@tiptap/react'
 
 
 export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {saveMediaEntry:any, hideMediaEntryForm:Function}){
@@ -21,6 +24,7 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
     const [errorMessage, setErrorMessage] = useState('')
     const [ratingInfoAnchorEl, setRatingInfoAnchorEl] = useState<null | HTMLElement>(null)
     const [reviewInfoAnchorEl, setReviewInfoAnchorEl] = useState<null | HTMLElement>(null)
+    const reviewRef = useRef<HTMLDivElement>(null);
 
     useEffect(()=> {
         fetch(`${import.meta.env.VITE_API_BASE_URL}/categories`)
@@ -122,7 +126,11 @@ export default function MediaEntryForm({saveMediaEntry, hideMediaEntryForm}: {sa
                                     </ClickAwayListener>
                                 </Popper>
                             </div>
-                            <textarea id="review" placeholder='Write your journal entry here!' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea>
+                            <Tiptap description={curFormData.review} descriptionElement={reviewRef} onChange={handleFormChange}/>
+                          
+                            {/* <textarea id="review" placeholder='Write your journal entry here!' name="review" value={curFormData.review}  onChange={handleFormChange}></textarea> */}
+
+                            
                         </div>
                        
                         <div className="entry-grid_row entry-grid_area-error">

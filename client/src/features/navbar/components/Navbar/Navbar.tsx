@@ -11,7 +11,7 @@ import logoUrl from '../../../../assets/logo.png'
 function Navbar(){
     const {user, logout}: any = UserAuth()
     const navigate = useNavigate()
-    const sidebarRef = useRef<HTMLDivElement>(null);
+    const sidebarRef = useRef<HTMLElement>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const location = useLocation();
 
