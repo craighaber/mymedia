@@ -110,8 +110,22 @@ input, textarea, select {
         justify-content: center;
     }
 
+    .title {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .title_text{
         font-size: 2.5rem;
+    }
+
+    .title_subtext{
+        font-size: 1.5rem;
+        margin: 0;
+        // Position relative since the login page does not have title_subtext and need sign up/login pages consistent
+        position: relative;
+        bottom: 2rem;
+        color: v.$primary-color;
     }
 
     .google{

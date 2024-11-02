@@ -101,6 +101,7 @@ function SignUp(){
 
                 <div className="title">
                     <h4 className="title_text">Create your free account</h4> 
+                    <h5 className="title_subtext"><i>It takes just 10 seconds!</i></h5>
                 </div>
 
                 <div className="google">
