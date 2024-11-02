@@ -47,16 +47,12 @@ $letter-spacing: 0.3rem;
     letter-spacing: $letter-spacing;
 }
 
-.navbar_about, .navbar_login {
-    @include v.button(13rem, 3.5rem, 2rem, true);
-}
-
-.navbar_logout {
-    @include v.button(13rem, 3.5rem, 2rem, true);
+.navbar_about, .navbar_login, .navbar_logout {
+    @include v.button(14rem, 3.5rem, 2rem, true);
 }
 
 .navbar_sign-up {
-    @include v.button(13rem, 3.5rem, 2rem);
+    @include v.button(14rem, 3.5rem, 2rem);
 }
 
 .navbar_icon {

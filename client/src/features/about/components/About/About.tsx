@@ -10,12 +10,12 @@ export default function About(){
             <div className = "about_container">
 
                 <div className="about-title">
-                    <h3 className="about-title_text">About MyMedia</h3>
+                    <h3 className="about-title_text">Why MyMedia?</h3>
                 </div>
                 <div className="about-content">
                     <p>
                         Have you ever watched an incredible movie, read an inspiring book, or listened to an album that deeply moved you?
-                        But then years later you try to recall the work in conversation, and you simply can't remember the first detail about it? We've all been there—and that's exactly why MyMedia was created!
+                        But then years later you try to recall the work in conversation, and you find yourself forgetting simple details? We've all been there—and that's exactly why MyMedia was created!
                     </p>
                     <h4>Your Personal Media Journal</h4>
                     <p>MyMedia serves as your personal journal for all kinds of media—be it TV, movies, books, video games, songs, or anything under the sun. With this platform you can easily record your impressions, ratings, and key insights about each work, ensuring that those memories stay alive for years to come.</p>
