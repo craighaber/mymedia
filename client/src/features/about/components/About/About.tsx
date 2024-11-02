@@ -15,8 +15,10 @@ export default function About(){
                 <div className="about-content">
                     <p>
                         Have you ever watched an incredible movie, read an inspiring book, or listened to an album that deeply moved you?
-                        But then years later you try to recall the work in conversation, and you find yourself forgetting simple details? We've all been there—and that's exactly why MyMedia was created!
+                        But then years later you try to recall the work in conversation, and you find yourself forgetting simple details?
                     </p>
+                    <p>Maybe you forgot the name of the artist, details about your favorite scene, or worst of all—why you liked it in the first place!</p>
+                    <p>We've all been there—and that's exactly why MyMedia was created!</p>
                     <h4>Your Personal Media Journal</h4>
                     <p>MyMedia serves as your personal journal for all kinds of media—be it TV, movies, books, video games, songs, or anything under the sun. With this platform you can easily record your impressions, ratings, and key insights about each work, ensuring that those memories stay alive for years to come.</p>
                     <h4>Why MyMedia?</h4>
