@@ -17,14 +17,15 @@ export default function About(){
                         Have you ever watched an incredible movie, read an inspiring book, or listened to an album that deeply moved you?
                         But then years later you try to recall the work in conversation, and you find yourself forgetting simple details?
                     </p>
-                    <p>Maybe you forgot the name of the artist, details about your favorite scene, or worst of all—why you liked it in the first place!</p>
+                    <p>Maybe you forgot the name of the creator, details about your favorite scene, or worst of all—why you liked it in the first place!</p>
                     <p>We've all been there—and that's exactly why MyMedia was created!</p>
                     <h4>Your Personal Media Journal</h4>
                     <p>MyMedia serves as your personal journal for all kinds of media—be it TV, movies, books, video games, songs, or anything under the sun. With this platform you can easily record your impressions, ratings, and key insights about each work, ensuring that those memories stay alive for years to come.</p>
-                    <h4>Why MyMedia?</h4>
-                    <p>Imagine a space where you can revisit your thoughts and feelings about all the media you have ever experienced. By journaling soon after you finish a work, you can preserve the freshness of your impressions for years to come. You'll be able to dive back into your personal reflections, sparking nostalgiam inspiration, or knowledge whenever you need it.</p>
+                    {/* <h4>Why MyMedia?</h4>
+                    <p>Imagine a space where you can revisit your thoughts and feelings about all the media you have ever experienced. By journaling soon after you finish a work, you can preserve the freshness of your initial impressions. Never again will you lose your memories or insight from these experiences.</p> */}
                     <h4>A Passion Project</h4>
-                    <p>My name is Craig, and I started this site as a passion project to help myself and others reflect on the media that shapes our lives. This platform has plenty of room for growth, and I'm eager to hear your thoughts. Please reach out with any and all feedback or questions by contacting me at by via <a href="mailto:craighaber1@gmail.com">email</a> or  by connecting through <a href="https://www.linkedin.com/in/craighaber/">LinkedIn</a>.</p>
+                    <p>My name is Craig, and I started this site as a passion project. I have always wanted to have one place where I could track all the media I have ever completed. This site fulfills that purpose for me and I hope it can for others as well.</p> 
+                    <p>MyMedia has plenty of room for growth, and I'm eager to hear your thoughts. Please reach out with any and all feedback or questions by contacting me at by via <a href="mailto:craighaber1@gmail.com">email</a> or  by connecting through <a href="https://www.linkedin.com/in/craighaber/">LinkedIn</a>.</p>
                 </div>
 
                 <div className="about-title">
@@ -45,7 +46,7 @@ export default function About(){
                     <h3 className="about-title_text">Need an example?</h3>    
                 </div>
                 <div className="about-content">
-                    <p>Here is an example of what a media entry might look like:</p>
+                    <p>Here is an example of what a media journal entry might look like:</p>
                     <div className='example-section'><b>Title:</b><i> This is What it Sounds Like</i></div>
                     <div className='example-section'><b>Category:</b> Book</div>
                     <div className='example-section'><b>Rating:</b> 9/10</div>
