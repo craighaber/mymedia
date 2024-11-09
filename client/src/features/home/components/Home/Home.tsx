@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './Home.scss';
 import RoutePaths from '../../../../globals/constants/RoutePaths';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowUpRightFromSquare, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { UserAuth } from '../../../../globals/context/AuthContext';
 import { useEffect } from 'react';
 import { USER_HAS_LOGGED_IN_BEFORE } from '../../../../globals/constants/localStorage';
@@ -45,9 +45,9 @@ export default function Home(){
         </div>
         
         <div className='buttons'>
-
-            <button className="buttons_learn-more" onClick={handleLearnMore}>LEARN MORE</button>
-            <button className='buttons_get-started' onClick={navigateLoginOrSignUp}>TRY IT FREE</button>
+            <button className='buttons_get-started' onClick={navigateLoginOrSignUp}>Start for free<FontAwesomeIcon icon={faArrowRight} className='arrow'/></button>
+            <button className="buttons_learn-more" onClick={handleLearnMore}>Learn More</button>
+        
         </div>
 
         <HomeSlider/>

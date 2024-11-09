@@ -1,5 +1,7 @@
 import './About.scss';
 import useNavigateLoginOrSignUp from '../../../../globals/hooks/useNavigateLoginOrSignUp';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export default function About(){
@@ -64,7 +66,7 @@ export default function About(){
                 <div className="about-content">
                     {/* <p>Take the first step in preserving your memories with media, and start using MyMedia today!</p> */}
                     <div className="get-started">
-                        <button className='get-started_button' onClick={navigateLoginOrSignUp}>GET STARTED</button>
+                        <button className='get-started_button' onClick={navigateLoginOrSignUp}>Start for free<FontAwesomeIcon icon={faArrowRight} className='arrow'/></button>
                     </div>
                  
                 </div>

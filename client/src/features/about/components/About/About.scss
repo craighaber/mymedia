@@ -55,11 +55,15 @@
     
         &_button {
             margin-top: 2rem;
-            @include v.button(23rem, 3.5rem, 2.5rem);
+            @include v.button(25rem, 4rem, 2.3rem);
             letter-spacing: 0.3rem;
             word-spacing: 0;
         }
 
+    }
+
+    .arrow {
+        margin-left: 1rem;
     }
 }
 
