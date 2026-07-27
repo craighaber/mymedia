@@ -17,6 +17,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: v.$primary-color;
+    color-scheme: light;
 }
 
 #root {
@@ -25,6 +26,11 @@ html, body {
     overflow-x: hidden;
     background-color: v.$primary-color;
     color: v.$white-color;
+    color-scheme: light;
+}
+
+.ag-theme-quartz {
+    color-scheme: light;
 }
 
 .choose-category {
