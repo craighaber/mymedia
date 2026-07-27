@@ -1,9 +1,7 @@
-import './MediaTable.scss'
 import { Media } from '../models/Media'
 import { AgGridReact } from 'ag-grid-react'
 import { ColDef, SizeColumnsToFitGridStrategy, GridOptions, CsvExportParams } from 'ag-grid-community';
-import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
-import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
+import './MediaTable.scss'
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RoutePaths from '../../../../globals/constants/RoutePaths';

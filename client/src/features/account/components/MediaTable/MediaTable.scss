@@ -42,7 +42,7 @@
         height: calc(100% - v.$above-table-height-mobile - 0.1rem);
     }
 
-    .ag-theme-quartz {
+    .media-table.ag-theme-quartz {
         --ag-font-size: 1.2rem !important;
         .ag-header-cell-text {
             font-size: 1.3rem;
